@@ -75,7 +75,7 @@ export const Footer: React.FC = () => {
             <ul className="space-y-2 text-sm">
               <li>
                 <a
-                  href="#"
+                  href="/apis/kyc"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
                   KYC APIs

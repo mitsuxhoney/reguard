@@ -17,11 +17,12 @@ import { ContactPage } from './pages/ContactPage'
 import { PrivacyPolicyPage } from './pages/PrivacyPolicyPage'
 import { TermsOfServicesPage } from './pages/TermsOfServicesPage'
 import { ScrollToTop } from './components/ScrollToTop'
-
+import { ScrollToTopButton } from './components/ScrollToTopButton.jsx'
 function App() {
   return (
     <>
       <ScrollToTop />
+      <ScrollToTopButton />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/solutions" element={<SolutionsPage />} />

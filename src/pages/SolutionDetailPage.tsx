@@ -153,7 +153,7 @@ export const SolutionDetailPage: React.FC = () => {
       name: "Hear'O'Clock",
       tagline:
         'AI-Powered Reputation Management for Brands, Enterprises & Government',
-      metaTitle: "Hear’O’Clock by reguard | Real-Time Brand Protection",
+      metaTitle: 'Hear’O’Clock by reguard | Real-Time Brand Protection',
       metaDescription:
         'Stay ahead with Hear’O’Clock by reguard – advanced reputation monitoring and crisis management to protect your brand across all digital channels.',
       description:
@@ -456,7 +456,7 @@ export const SolutionDetailPage: React.FC = () => {
         className={`bg-gradient-to-br ${solution.gradient} text-white py-20`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center mb-6">
+          {/* <div className="flex items-center mb-6">
             <Link
               to="/solutions"
               className="inline-flex items-center text-white/80 hover:text-white transition-colors mr-4"
@@ -464,7 +464,7 @@ export const SolutionDetailPage: React.FC = () => {
               <ArrowLeft size={20} className="mr-2" />
               Back to Solutions
             </Link>
-          </div>
+          </div> */}
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>

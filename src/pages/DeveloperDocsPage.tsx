@@ -55,7 +55,7 @@ export const DeveloperDocsPage: React.FC = () => {
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-purple-600 to-purple-800 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center mb-6">
+          {/* <div className="flex items-center mb-6">
             <Link
               to="/resources"
               className="inline-flex items-center text-purple-200 hover:text-white transition-colors mr-4"
@@ -63,7 +63,7 @@ export const DeveloperDocsPage: React.FC = () => {
               <ArrowLeft size={20} className="mr-2" />
               Back to Resources
             </Link>
-          </div>
+          </div> */}
 
           <h1 className="font-gilroy text-4xl lg:text-5xl font-bold mb-6">
             Developer Documentation

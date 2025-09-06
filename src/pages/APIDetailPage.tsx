@@ -136,7 +136,7 @@ export const APIDetailPage: React.FC = () => {
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-red-900 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center mb-6">
+          {/* <div className="flex items-center mb-6">
             <Link
               to={`/apis/${category}`}
               className="inline-flex items-center text-red-300 hover:text-white transition-colors mr-4"
@@ -144,7 +144,7 @@ export const APIDetailPage: React.FC = () => {
               <ArrowLeft size={20} className="mr-2" />
               Back to {category?.toUpperCase()} APIs
             </Link>
-          </div>
+          </div> */}
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>

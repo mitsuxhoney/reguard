@@ -5,10 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --base=/assets/xray/reguard/ && yarn copy-html-entry",
+    "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview",
-    "copy-html-entry": "cp ../xray/public/reguard/index.html ../xray/www/reguard.html"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.12",

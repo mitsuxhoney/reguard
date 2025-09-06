@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 // import { Logo } from './Logo';
-import ReguardLogo from '../assets/reguard-new-logo-dark.svg'
+import ReguardLogo from '../assets/reguard_logo_light.svg'
 import {
   Github,
   Twitter,
@@ -19,11 +19,7 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-1">
             {/* <Logo variant="light" className="h-8 w-auto mb-4" /> */}
-            <img
-              src={ReguardLogo}
-              alt="Reguard Logo"
-              className="h-8 w-auto mb-4"
-            />
+            <img src={ReguardLogo} alt="Reguard Logo" className="h-9 mb-4" />
             <p className="text-gray-400 text-sm leading-relaxed">
               Leading RegTech provider offering comprehensive identity
               verification and compliance APIs for modern businesses.

@@ -61,6 +61,87 @@ export const APICategoryPage: React.FC = () => {
       keywords:
         'AML API, anti-money laundering, sanctions screening, PEP screening, OFAC compliance, financial crime prevention, transaction monitoring, suspicious activity detection, regulatory compliance',
     },
+    'due-diligence': {
+      title: 'Due Diligence APIs',
+      description:
+        'Comprehensive due diligence solutions for background verification, litigation checks, financial history review, and corporate investigations to ensure compliance and mitigate risks.',
+      totalAPIs: 3,
+      gradient: 'from-indigo-600 to-cyan-600',
+      keywords:
+        'due diligence API, background checks, litigation screening, corporate investigations, financial history, compliance checks, vendor verification',
+    },
+    criminal: {
+      title: 'Criminal Screening APIs',
+      description:
+        'APIs for criminal background checks, court record searches, watchlist matching, and law enforcement data integration to ensure safe onboarding and compliance.',
+      totalAPIs: 1,
+      gradient: 'from-rose-600 to-pink-600',
+      keywords:
+        'criminal screening API, background verification, criminal records, police verification, court data, law enforcement screening',
+    },
+    negative: {
+      title: 'Negative Profiles & Adverse Media APIs',
+      description:
+        'Monitor adverse media sources, reputational risks, and negative profiles to protect your organization from high-risk individuals and entities.',
+      totalAPIs: 1,
+      gradient: 'from-gray-600 to-slate-600',
+      keywords:
+        'negative profile API, adverse media, reputation risk, negative news screening, media monitoring, compliance risk',
+    },
+    'transaction-monitoring': {
+      title: 'Transaction Monitoring APIs',
+      description:
+        'Real-time transaction monitoring APIs for anomaly detection, suspicious activity identification, and AML compliance automation.',
+      totalAPIs: 1,
+      gradient: 'from-emerald-600 to-lime-600',
+      keywords:
+        'transaction monitoring API, fraud detection, suspicious activity, AML compliance, anomaly detection, financial crime monitoring',
+    },
+    'credit-risk': {
+      title: 'Credit & Risk Assessment APIs',
+      description:
+        'Credit scoring and risk evaluation APIs for financial institutions to assess creditworthiness, detect risk factors, and make informed lending decisions.',
+      totalAPIs: 1,
+      gradient: 'from-yellow-600 to-orange-600',
+      keywords:
+        'credit risk API, credit scoring, risk assessment, financial health, lending risk, creditworthiness evaluation',
+    },
+    'fraud-detection': {
+      title: 'Fraud Detection APIs',
+      description:
+        'Advanced fraud detection APIs with AI-driven pattern analysis, device fingerprinting, and transaction risk scoring to prevent fraudulent activities.',
+      totalAPIs: 2,
+      gradient: 'from-fuchsia-600 to-purple-600',
+      keywords:
+        'fraud detection API, fraud prevention, device fingerprinting, risk scoring, synthetic identity detection, anomaly detection',
+    },
+    'data-enrichment': {
+      title: 'Data Enrichment APIs',
+      description:
+        'Enhance customer profiles with data enrichment APIs that provide demographic, behavioral, and firmographic insights for better decision-making.',
+      totalAPIs: 4,
+      gradient: 'from-teal-600 to-cyan-600',
+      keywords:
+        'data enrichment API, customer profiling, firmographic data, demographic enrichment, behavioral insights, identity enhancement',
+    },
+    geolocation: {
+      title: 'Geolocation Verification APIs',
+      description:
+        'Verify user location and IP details with geolocation APIs to prevent fraud, ensure compliance, and enable regional personalization.',
+      totalAPIs: 1,
+      gradient: 'from-sky-600 to-indigo-600',
+      keywords:
+        'geolocation API, IP verification, location verification, fraud prevention, regional compliance, geo-IP data',
+    },
+    'legal-compliance': {
+      title: 'Legal Compliance Verification APIs',
+      description:
+        'Legal entity verification APIs for corporate compliance checks, license verification, and regulatory adherence to meet industry requirements.',
+      totalAPIs: 1,
+      gradient: 'from-violet-600 to-indigo-600',
+      keywords:
+        'legal compliance API, entity verification, regulatory compliance, license checks, compliance automation, corporate governance',
+    },
   }
 
   const currentCategory =

@@ -12,8 +12,6 @@ export default defineConfig({
     },
   },
   build: {
-    outDir: '../xray/public/reguard',
-    emptyOutDir: true,
-    target: 'es2015',
+    outDir: 'dist',
   },
 })

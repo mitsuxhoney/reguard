@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async'
 import { Header } from '../components/Header'
 import { Footer } from '../components/Footer'
 import { SignUpModal } from '../components/SignUpModal'
+import { Link } from 'react-router-dom'
 import {
   Mail,
   Phone,
@@ -140,6 +141,27 @@ export const ContactPage: React.FC = () => {
         <meta property="og:url" content="https://reguard.com/contact" />
       </Helmet>
       <Header />
+
+      {/* Breadcrumb */}
+      <div className="bg-gray-50 border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+          <nav className="flex items-center space-x-2 text-sm">
+            <Link
+              to="/"
+              className="text-gray-500 hover:text-red-600 transition-colors"
+            >
+              Home
+            </Link>
+            <span className="text-gray-400">/</span>
+            <Link
+              to={'/contact'}
+              className="text-gray-800 font-medium hover:text-red-600 transition-colors capitalize"
+            >
+              Contact
+            </Link>
+          </nav>
+        </div>
+      </div>
 
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-red-900 text-white py-20">

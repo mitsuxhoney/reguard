@@ -38,7 +38,8 @@ const solutionsData = {
   },
   hearoclock: {
     name: "Hear'O'Clock",
-    tagline: 'AI-Powered Reputation Management for Brands, Enterprises & Government',
+    tagline:
+      'AI-Powered Reputation Management for Brands, Enterprises & Government',
     badge: '',
     description:
       "Advanced reputation monitoring and crisis management platform that tracks, analyzes, and helps protect your brand's online presence across all digital channels with real-time threat detection.",
@@ -102,17 +103,21 @@ export const SolutionsPage: React.FC = () => {
   const [signUpModal, setSignUpModal] = useState<{
     isOpen: boolean
     type: 'signup' | 'demo' | 'trial'
+    formSource: 'cta' | 'header' | 'hero'
   }>({
     isOpen: false,
     type: 'signup',
+    formSource: 'header',
   })
 
-  const openSignUpModal = (type: 'signup' | 'demo' | 'trial') => {
-    setSignUpModal({ isOpen: true, type })
+  const openSignUpModal = (
+    type: 'signup' | 'demo' | 'trial',
+    formSource: 'cta' | 'header' | 'hero'
+  ) => {
+    setSignUpModal({ isOpen: true, type, formSource })
   }
-
   const closeSignUpModal = () => {
-    setSignUpModal({ isOpen: false, type: 'signup' })
+    setSignUpModal({ isOpen: false, type: 'signup', formSource: 'header' })
   }
 
   return (
@@ -188,7 +193,9 @@ export const SolutionsPage: React.FC = () => {
                 </div>
                 <p className="text-gray-700 mb-4">{solution.description}</p>
                 <div className="mt-auto pt-4 flex items-center justify-between">
-                  <span className="text-sm text-gray-500 font-medium">Starter</span>
+                  <span className="text-sm text-gray-500 font-medium">
+                    Starter
+                  </span>
                   <span className="font-bold text-gray-900">
                     {solution.pricing.starter}
                   </span>
@@ -205,6 +212,7 @@ export const SolutionsPage: React.FC = () => {
         isOpen={signUpModal.isOpen}
         onClose={closeSignUpModal}
         type={signUpModal.type}
+        formSource={signUpModal.formSource}
       />
     </div>
   )

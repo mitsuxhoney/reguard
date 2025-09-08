@@ -13,13 +13,18 @@ export const HomePage: React.FC = () => {
   const [signUpModal, setSignUpModal] = useState<{
     isOpen: boolean
     type: 'signup' | 'demo' | 'trial'
+    formSource?: 'cta' | 'header' | 'hero'
   }>({
     isOpen: false,
     type: 'signup',
+    formSource: 'header',
   })
 
-  const openSignUpModal = (type: 'signup' | 'demo' | 'trial') => {
-    setSignUpModal({ isOpen: true, type })
+  const openSignUpModal = (
+    type: 'signup' | 'demo' | 'trial',
+    formSource: 'cta' | 'header'
+  ) => {
+    setSignUpModal({ isOpen: true, type, formSource })
   }
 
   const closeSignUpModal = () => {
@@ -72,6 +77,7 @@ export const HomePage: React.FC = () => {
         isOpen={signUpModal.isOpen}
         onClose={closeSignUpModal}
         type={signUpModal.type}
+        formSource={signUpModal.formSource}
       />
     </div>
   )

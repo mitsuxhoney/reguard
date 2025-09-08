@@ -4,6 +4,7 @@ import { SolutionsPage } from './pages/SolutionsPage'
 import { APIDetailPage } from './pages/APIDetailPage.tsx'
 import { SolutionDetailPage } from './pages/SolutionDetailPage'
 import { APICategoryPage } from './pages/APICategoryPage'
+import {APIHomePage} from './pages/APIHomePage.tsx'
 import { IndustriesPage } from './pages/IndustriesPage'
 import { IndustryDetailPage } from './pages/IndustryDetailPage'
 import { ResourcesPage } from './pages/ResourcesPage'
@@ -27,7 +28,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/solutions" element={<SolutionsPage />} />
         <Route path="/solutions/:solutionId" element={<SolutionDetailPage />} />
-        <Route path="/apis" element={<APICategoryPage />} />
+        <Route path="/apis" element={<APIHomePage />} />
         <Route path="/apis/:category" element={<APICategoryPage />} />
         <Route path="/apis/:category/:apiId" element={<APIDetailPage />} />
         <Route path="/industries" element={<IndustriesPage />} />

@@ -14,32 +14,40 @@ import {
   Users,
   Headphones,
 } from 'lucide-react'
+import { toast } from 'sonner'
+import { createClient } from '@supabase/supabase-js'
+
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
+const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY
+const supabase = createClient(supabaseUrl, supabaseKey)
 
 export const ContactPage: React.FC = () => {
   const [signUpModal, setSignUpModal] = useState<{
     isOpen: boolean
     type: 'signup' | 'demo' | 'trial'
+    formSource?: 'schedule-demo'
   }>({
     isOpen: false,
     type: 'signup',
+    formSource: 'schedule-demo',
   })
   const [formData, setFormData] = useState({
-    name: '',
+    full_name: '',
     email: '',
     company: '',
     phone: '',
-    subject: '',
+    // subject: '',
     message: '',
-    inquiryType: 'general',
+    question: '',
   })
 
-  const openSignUpModal = (type: 'signup' | 'demo' | 'trial') => {
-    setSignUpModal({ isOpen: true, type })
-  }
+  // const openSignUpModal = (type: 'signup' | 'demo' | 'trial', formSource) => {
+  //   setSignUpModal({ isOpen: true, type, formSource })
+  // }
 
-  const closeSignUpModal = () => {
-    setSignUpModal({ isOpen: false, type: 'signup' })
-  }
+  // const closeSignUpModal = () => {
+  //   setSignUpModal({ isOpen: false, type: 'signup' })
+  // }
 
   const handleInputChange = (
     e: React.ChangeEvent<
@@ -52,12 +60,106 @@ export const ContactPage: React.FC = () => {
     })
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const validateForm = () => {
+    const errors = []
+
+    // Check required fields
+
+    if (!formData.full_name.trim()) {
+      errors.push('Full Name is required')
+    }
+
+    if (!formData.email.trim()) {
+      errors.push('Work Email is required')
+    } else {
+      // Email format validation
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+      if (!emailRegex.test(formData.email)) {
+        errors.push('Please enter a valid email address')
+      }
+    }
+
+    if (!formData.company.trim()) {
+      errors.push('Company is required')
+    }
+
+    // Phone validation (only if provided)
+    if (formData.phone.trim()) {
+      const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/
+      if (!phoneRegex.test(formData.phone.replace(/[\s\-\(\)]/g, ''))) {
+        errors.push('Please enter a valid phone number')
+      }
+    }
+
+    if (!formData.question.trim()) {
+      errors.push('Please select what you are looking for')
+    }
+
+    if (!formData.message.trim()) {
+      errors.push('Message is required')
+    }
+
+    return errors
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+
+    // Validate form
+    const validationErrors = validateForm()
+
+    if (validationErrors.length > 0) {
+      // Show first validation error
+      toast.error(validationErrors[0])
+      return
+    }
+    try {
+      // Insert the form data into your Supabase table
+
+      const { error } = await supabase
+        .from('contact_messages') // Replace with your table name
+        .insert([
+          {
+            full_name: formData.full_name.trim(),
+            email: formData.email.trim().toLowerCase(),
+            company: formData.company.trim(),
+            phone: formData.phone.trim(),
+            question: formData.question.trim(),
+            message: formData.message.trim(),
+            referer: location.pathname,
+            form_source: 'contact-us-form',
+          },
+        ])
+
+      if (error) throw error
+
+      // Show success message with react-hot-toast
+      toast.success("Thank you for your message! We'll get back to you soon.")
+      setFormData({
+        full_name: '',
+        email: '',
+        company: '',
+        phone: '',
+        question: '',
+        message: '',
+      })
+    } catch (error) {
+      console.error('Error submitting form:', error)
+      // Show error message with react-hot-toast
+      toast.error('Something went wrong. Please try again later.')
+    }
     // Handle form submission here
     console.log('Form submitted:', formData)
-    // Reset form or show success message
   }
+  const questions = [
+    { label: 'Digital KYC Solution', value: 'Digital KYC Solution' },
+    { label: 'KYC APIs', value: 'KYC APIs' },
+    { label: 'Compliance AI Agent', value: 'Compliance AI Agent' },
+    {
+      label: 'Post Onboarding Compliance',
+      value: 'Post Onboarding Compliance',
+    },
+  ]
 
   const contactMethods = [
     {
@@ -87,6 +189,7 @@ export const ContactPage: React.FC = () => {
       description: 'Book a personalized demo with our product experts',
       contact: '30-minute session',
       action: 'Book Demo',
+      form_source: 'schedule-demo',
     },
   ]
 
@@ -225,7 +328,7 @@ export const ContactPage: React.FC = () => {
                 <button
                   onClick={() => {
                     if (method.title === 'Schedule Demo') {
-                      openSignUpModal('demo')
+                      // openSignUpModal('demo', 'schedule-demo')
                     } else if (method.title === 'Email Us') {
                       window.location.href = 'mailto:hello@reguard.com'
                     } else if (method.title === 'Call Us') {
@@ -267,9 +370,9 @@ export const ContactPage: React.FC = () => {
                     </label>
                     <input
                       type="text"
-                      name="name"
+                      name="full_name"
                       required
-                      value={formData.name}
+                      value={formData.full_name}
                       onChange={handleInputChange}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-200"
                       placeholder="John Doe"
@@ -323,24 +426,24 @@ export const ContactPage: React.FC = () => {
 
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 mb-2">
-                    Inquiry Type *
+                    What are you looking for ? *
                   </label>
                   <select
-                    name="inquiryType"
+                    name="question"
                     required
-                    value={formData.inquiryType}
+                    value={formData.question}
                     onChange={handleInputChange}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-200"
                   >
-                    <option value="general">General Inquiry</option>
-                    <option value="sales">Sales & Pricing</option>
-                    <option value="technical">Technical Support</option>
-                    <option value="partnership">Partnership</option>
-                    <option value="demo">Product Demo</option>
+                    {questions.map((question) => (
+                      <option key={question.label} value={question.value}>
+                        {question.label}
+                      </option>
+                    ))}
                   </select>
                 </div>
 
-                <div>
+                {/* <div>
                   <label className="block text-sm font-semibold text-gray-700 mb-2">
                     Subject *
                   </label>
@@ -353,7 +456,7 @@ export const ContactPage: React.FC = () => {
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-200"
                     placeholder="How can we help you?"
                   />
-                </div>
+                </div> */}
 
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 mb-2">
@@ -447,11 +550,12 @@ export const ContactPage: React.FC = () => {
       </section>
 
       <Footer />
-      <SignUpModal
+      {/* <SignUpModal
         isOpen={signUpModal.isOpen}
         onClose={closeSignUpModal}
         type={signUpModal.type}
-      />
+        formSource={signUpModal.formSource}
+      /> */}
     </div>
   )
 }

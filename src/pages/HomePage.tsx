@@ -70,7 +70,7 @@ export const HomePage: React.FC = () => {
         onScrollToAPIs={scrollToAPIDiscovery}
       />
       <TrustIndicators />
-      <APIDiscovery />
+      <APIDiscovery /> 
       <CTA onOpenSignUp={openSignUpModal} />
       <Footer />
       <SignUpModal

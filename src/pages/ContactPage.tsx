@@ -109,7 +109,6 @@ export const ContactPage: React.FC = () => {
     const validationErrors = validateForm()
 
     if (validationErrors.length > 0) {
-      // Show first validation error
       toast.error(validationErrors[0])
       return
     }
@@ -120,6 +119,8 @@ export const ContactPage: React.FC = () => {
         .from('contact_messages') // Replace with your table name
         .insert([
           {
+            first_name: formData.full_name.trim().split(' ')[0],
+            last_name: formData.full_name.trim().split(' ').slice(1).join(' '),
             full_name: formData.full_name.trim(),
             email: formData.email.trim().toLowerCase(),
             company: formData.company.trim(),

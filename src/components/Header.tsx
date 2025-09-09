@@ -174,14 +174,19 @@ export const Header: React.FC = () => {
   const [signUpModal, setSignUpModal] = useState<{
     isOpen: boolean
     type: 'signup' | 'demo' | 'trial'
+    formSource?: 'cta' | 'header' | 'hero'
   }>({
     isOpen: false,
     type: 'signup',
+    formSource: 'header',
   })
   const [loginModalOpen, setLoginModalOpen] = useState(false)
 
-  const openSignUpModal = (type: 'signup' | 'demo' | 'trial') => {
-    setSignUpModal({ isOpen: true, type })
+  const openSignUpModal = (
+    type: 'signup' | 'demo' | 'trial',
+    formSource: 'header' | 'cta' | 'hero'
+  ) => {
+    setSignUpModal({ isOpen: true, type, formSource })
   }
 
   const closeSignUpModal = () => {
@@ -774,7 +779,7 @@ export const Header: React.FC = () => {
                   Log In
                 </button>
                 <button
-                  onClick={() => openSignUpModal('trial')}
+                  onClick={() => openSignUpModal('trial', 'header')}
                   className="block w-full bg-red-600 hover:bg-red-700 text-white px-3 py-3 rounded-lg text-base font-semibold transition-colors shadow-sm"
                 >
                   Get Started
@@ -789,6 +794,7 @@ export const Header: React.FC = () => {
         isOpen={signUpModal.isOpen}
         onClose={closeSignUpModal}
         type={signUpModal.type}
+        formSource={signUpModal.formSource}
       />
       <LoginModal
         isOpen={loginModalOpen}

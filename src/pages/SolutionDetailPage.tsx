@@ -25,15 +25,19 @@ export const SolutionDetailPage: React.FC = () => {
   const [signUpModal, setSignUpModal] = useState<{
     isOpen: boolean
     type: 'signup' | 'demo' | 'trial'
+    formSource: 'cta' | 'header' | 'hero'
   }>({
     isOpen: false,
     type: 'signup',
+    formSource: 'header',
   })
 
-  const openSignUpModal = (type: 'signup' | 'demo' | 'trial') => {
-    setSignUpModal({ isOpen: true, type })
+  const openSignUpModal = (
+    type: 'signup' | 'demo' | 'trial',
+    formSource: 'cta' | 'header' | 'hero'
+  ) => {
+    setSignUpModal({ isOpen: true, type, formSource })
   }
-
   const closeSignUpModal = () => {
     setSignUpModal({ isOpen: false, type: 'signup' })
   }
@@ -493,14 +497,14 @@ export const SolutionDetailPage: React.FC = () => {
 
               <div className="flex flex-col sm:flex-row gap-4">
                 <button
-                  onClick={() => openSignUpModal('demo')}
+                  onClick={() => openSignUpModal('demo', 'hero-cta')}
                   className="bg-white hover:bg-gray-100 text-gray-900 px-8 py-4 rounded-lg text-lg font-semibold transition-colors shadow-lg hover:shadow-xl flex items-center space-x-2"
                 >
                   <Play size={20} />
                   <span>Request Demo</span>
                 </button>
                 <button
-                  onClick={() => openSignUpModal('trial')}
+                  onClick={() => openSignUpModal('trial', 'hero-cta')}
                   className="border-2 border-white hover:bg-white hover:text-gray-900 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors flex items-center space-x-2"
                 >
                   <BookOpen size={20} />
@@ -766,6 +770,7 @@ export const SolutionDetailPage: React.FC = () => {
         isOpen={signUpModal.isOpen}
         onClose={closeSignUpModal}
         type={signUpModal.type}
+        formSource={signUpModal.formSource}
       />
     </div>
   )

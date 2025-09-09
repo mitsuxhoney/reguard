@@ -1,8 +1,8 @@
-import React from 'react';
-import { ArrowRight, Code, BookOpen, Phone } from 'lucide-react';
+import React from 'react'
+import { ArrowRight, Code, BookOpen, Phone } from 'lucide-react'
 
 interface CTAProps {
-  onOpenSignUp: (type: 'signup' | 'demo' | 'trial') => void;
+  onOpenSignUp: (type: 'signup' | 'demo' | 'trial') => void
 }
 
 export const CTA: React.FC<CTAProps> = ({ onOpenSignUp }) => {
@@ -14,8 +14,8 @@ export const CTA: React.FC<CTAProps> = ({ onOpenSignUp }) => {
             Ready to Integrate Reguard APIs?
           </h2>
           <p className="font-inter text-xl text-red-100 max-w-2xl mx-auto">
-            Get started with our comprehensive APIs in minutes. Choose from flexible plans 
-            designed for businesses of all sizes.
+            Get started with our comprehensive APIs in minutes. Choose from
+            flexible plans designed for businesses of all sizes.
           </p>
         </div>
 
@@ -24,12 +24,15 @@ export const CTA: React.FC<CTAProps> = ({ onOpenSignUp }) => {
             <Code className="w-12 h-12 mx-auto mb-4 text-red-200" />
             <h3 className="text-lg font-semibold mb-2">Quick Integration</h3>
             <p className="text-red-100 text-sm">
-              RESTful APIs with comprehensive SDKs for popular programming languages
+              RESTful APIs with comprehensive SDKs for popular programming
+              languages
             </p>
           </div>
           <div className="text-center p-6 bg-white/10 rounded-xl backdrop-blur-sm">
             <BookOpen className="w-12 h-12 mx-auto mb-4 text-red-200" />
-            <h3 className="text-lg font-semibold mb-2">Detailed Documentation</h3>
+            <h3 className="text-lg font-semibold mb-2">
+              Detailed Documentation
+            </h3>
             <p className="text-red-100 text-sm">
               Step-by-step guides, code examples, and interactive API explorer
             </p>
@@ -44,15 +47,15 @@ export const CTA: React.FC<CTAProps> = ({ onOpenSignUp }) => {
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <button 
-            onClick={() => onOpenSignUp('trial')}
+          <button
+            onClick={() => onOpenSignUp('trial', 'cta')}
             className="bg-white hover:bg-gray-100 text-red-600 px-8 py-4 rounded-lg text-lg font-semibold transition-colors inline-flex items-center space-x-2"
           >
             <span>Get API Key</span>
             <ArrowRight size={20} />
           </button>
-          <button 
-            onClick={() => onOpenSignUp('demo')}
+          <button
+            onClick={() => onOpenSignUp('demo', 'cta')}
             className="border-2 border-white hover:bg-white hover:text-red-600 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
           >
             Schedule Demo
@@ -66,5 +69,5 @@ export const CTA: React.FC<CTAProps> = ({ onOpenSignUp }) => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}

@@ -1,10 +1,10 @@
-import React from 'react';
-import { SignUpModal } from './SignUpModal';
-import { Shield, Zap, Globe } from 'lucide-react';
+import React from 'react'
+import { SignUpModal } from './SignUpModal'
+import { Shield, Zap, Globe } from 'lucide-react'
 
 interface HeroProps {
-  onOpenSignUp: (type: 'signup' | 'demo' | 'trial') => void;
-  onScrollToAPIs: () => void;
+  onOpenSignUp: (type: 'signup' | 'demo' | 'trial') => void
+  onScrollToAPIs: () => void
 }
 
 export const Hero: React.FC<HeroProps> = ({ onOpenSignUp, onScrollToAPIs }) => {
@@ -17,19 +17,19 @@ export const Hero: React.FC<HeroProps> = ({ onOpenSignUp, onScrollToAPIs }) => {
             <span className="block text-red-400">APIs for Modern Business</span>
           </h1>
           <p className="font-inter text-xl sm:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-            Secure your business with 30+ advanced APIs for KYC, KYB, AML compliance, 
-            and comprehensive due diligence across global markets.
+            Secure your business with 30+ advanced APIs for KYC, KYB, AML
+            compliance, and comprehensive due diligence across global markets.
           </p>
-          
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <button 
+            <button
               onClick={onScrollToAPIs}
               className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors shadow-lg hover:shadow-xl"
             >
               Explore APIs
             </button>
-            <button 
-              onClick={() => onOpenSignUp('demo')}
+            <button
+              onClick={() => onOpenSignUp('demo', 'hero')}
               className="border-2 border-white hover:bg-white hover:text-gray-900 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
             >
               Request Demo
@@ -53,5 +53,5 @@ export const Hero: React.FC<HeroProps> = ({ onOpenSignUp, onScrollToAPIs }) => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}

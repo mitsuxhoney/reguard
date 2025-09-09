@@ -510,7 +510,7 @@ export const APIDiscovery: React.FC = () => {
   };
   return (
     <section id="apis" className="py-12 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
         <div className="text-center mb-8">
           <h2 className="font-gilroy text-2xl font-bold text-gray-900 mb-2">
             API Discovery
@@ -518,7 +518,6 @@ export const APIDiscovery: React.FC = () => {
           <p className="font-inter text-gray-600 max-w-2xl mx-auto mb-4">
             Explore {totalAPIs}+ powerful APIs across 6 categories for comprehensive identity verification
           </p>
-          
           <div className="max-w-sm mx-auto">
             <div className="relative">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={16} />
@@ -533,12 +532,26 @@ export const APIDiscovery: React.FC = () => {
           </div>
         </div>
 
-
         {/* Sidebar Layout */}
-        <div className="flex gap-6">
+        <div className="flex flex-col lg:flex-row gap-4 lg:gap-6 m-2">
           {/* Left Sidebar - Categories */}
-          <div className="w-64 flex-shrink-0">
-            <div className="bg-white rounded-lg border border-gray-200 p-4">
+          <div className="w-full lg:w-64 flex-shrink-0 mb-4 lg:mb-0">
+            {/* Mobile: Dropdown */}
+            <div className="block md:hidden mb-4">
+              <select
+                className="w-full border border-gray-300 rounded-lg p-2 bg-white text-gray-900"
+                value={activeCategory}
+                onChange={e => setActiveCategory(e.target.value)}
+              >
+                {categories.map(category => (
+                  <option key={category.id} value={category.id}>
+                    {category.title}
+                  </option>
+                ))}
+              </select>
+            </div>
+            {/* Desktop: Sidebar */}
+            <div className="hidden lg:block bg-white rounded-lg border border-gray-200 p-2 sm:p-4">
               <h3 className="text-sm font-semibold text-gray-900 mb-3">Categories</h3>
               <div className="space-y-1">
                 {categories.map((category) => (
@@ -556,11 +569,10 @@ export const APIDiscovery: React.FC = () => {
             </div>
           </div>
 
-
           {/* Right Content - API Cards */}
           <div className="flex-1">
-            <div className="bg-white rounded-lg border border-gray-200 p-4">
-              <div className="flex items-center justify-between mb-4">
+            <div className="bg-white rounded-lg border border-gray-200 p-2 sm:p-4">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 gap-2">
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900">
                     {categories.find(c => c.id === activeCategory)?.title} APIs
@@ -574,7 +586,7 @@ export const APIDiscovery: React.FC = () => {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
                 {filteredAPIs.map((api, index) => (
                   <APICard
                     key={index}

@@ -25,15 +25,17 @@ export const APIDetailPage: React.FC = () => {
   const [signUpModal, setSignUpModal] = useState<{
     isOpen: boolean
     type: 'signup' | 'demo' | 'trial'
+    formSource?: 'header' | 'hero-cta' | 'footer-cta'
   }>({
     isOpen: false,
     type: 'signup',
+    formSource: 'header',
   })
   const [copiedCode, setCopiedCode] = useState<string | null>(null)
   const [activeTab, setActiveTab] = useState('curl')
 
-  const openSignUpModal = (type: 'signup' | 'demo' | 'trial') => {
-    setSignUpModal({ isOpen: true, type })
+  const openSignUpModal = (type: 'signup' | 'demo' | 'trial', formSource) => {
+    setSignUpModal({ isOpen: true, type, formSource })
   }
 
   const closeSignUpModal = () => {
@@ -369,7 +371,7 @@ export const APIDetailPage: React.FC = () => {
               </h3>
               <div className="space-y-4">
                 <button
-                  onClick={() => openSignUpModal('trial')}
+                  onClick={() => openSignUpModal('trial', 'footer-cta')}
                   className="w-full bg-red-600 hover:bg-red-700 text-white py-3 px-4 rounded-lg font-semibold transition-colors"
                 >
                   Get API Key

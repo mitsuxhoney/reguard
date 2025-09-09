@@ -48,14 +48,14 @@ export const CTA: React.FC<CTAProps> = ({ onOpenSignUp }) => {
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <button
-            onClick={() => onOpenSignUp('trial', 'cta')}
+            onClick={() => onOpenSignUp('trial', 'footer-cta')}
             className="bg-white hover:bg-gray-100 text-red-600 px-8 py-4 rounded-lg text-lg font-semibold transition-colors inline-flex items-center space-x-2"
           >
             <span>Get API Key</span>
             <ArrowRight size={20} />
           </button>
           <button
-            onClick={() => onOpenSignUp('demo', 'cta')}
+            onClick={() => onOpenSignUp('demo', 'footer-cta')}
             className="border-2 border-white hover:bg-white hover:text-red-600 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
           >
             Schedule Demo

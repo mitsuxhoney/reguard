@@ -672,13 +672,13 @@ export const SolutionDetailPage: React.FC = () => {
               </h3>
               <div className="space-y-4">
                 <button
-                  onClick={() => openSignUpModal('demo')}
+                  onClick={() => openSignUpModal('demo', 'footer-cta')}
                   className={`w-full bg-gradient-to-r ${solution.gradient} hover:shadow-lg text-white py-3 px-4 rounded-lg font-semibold transition-all transform hover:-translate-y-0.5`}
                 >
                   Request Demo
                 </button>
                 <button
-                  onClick={() => openSignUpModal('trial')}
+                  onClick={() => openSignUpModal('trial', 'footer-cta')}
                   className="w-full border-2 border-gray-300 text-gray-700 hover:border-gray-400 hover:text-gray-900 py-3 px-4 rounded-lg font-semibold transition-colors"
                 >
                   Start Free Trial

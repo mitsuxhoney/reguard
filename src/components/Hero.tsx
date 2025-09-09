@@ -29,7 +29,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenSignUp, onScrollToAPIs }) => {
               Explore APIs
             </button>
             <button
-              onClick={() => onOpenSignUp('demo', 'hero')}
+              onClick={() => onOpenSignUp('demo', 'hero-cta')}
               className="border-2 border-white hover:bg-white hover:text-gray-900 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
             >
               Request Demo

@@ -19,13 +19,15 @@ export const AboutPage: React.FC = () => {
   const [signUpModal, setSignUpModal] = useState<{
     isOpen: boolean
     type: 'signup' | 'demo' | 'trial'
+    formSource?: 'footer-cta'
   }>({
     isOpen: false,
     type: 'signup',
+    formSource: 'footer-cta',
   })
 
-  const openSignUpModal = (type: 'signup' | 'demo' | 'trial') => {
-    setSignUpModal({ isOpen: true, type })
+  const openSignUpModal = (type: 'signup' | 'demo' | 'trial', formSource) => {
+    setSignUpModal({ isOpen: true, type, formSource })
   }
 
   const closeSignUpModal = () => {
@@ -466,13 +468,13 @@ export const AboutPage: React.FC = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
-              onClick={() => openSignUpModal('demo')}
+              onClick={() => openSignUpModal('demo', 'footer-cta')}
               className="bg-white hover:bg-gray-100 text-red-600 px-8 py-4 rounded-lg text-lg font-semibold transition-colors shadow-lg hover:shadow-xl"
             >
               Schedule a Demo
             </button>
             <button
-              onClick={() => openSignUpModal('trial')}
+              onClick={() => openSignUpModal('trial', 'footer-cta')}
               className="border-2 border-white hover:bg-white hover:text-red-600 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
             >
               Start Free Trial
@@ -486,6 +488,7 @@ export const AboutPage: React.FC = () => {
         isOpen={signUpModal.isOpen}
         onClose={closeSignUpModal}
         type={signUpModal.type}
+        formSource={signUpModal.formSource}
       />
     </div>
   )

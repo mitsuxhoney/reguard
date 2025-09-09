@@ -338,6 +338,7 @@ export const ResourcesPage: React.FC = () => {
         isOpen={signUpModal.isOpen}
         onClose={closeSignUpModal}
         type={signUpModal.type}
+        formSource={signUpModal.formSource}
       />
     </div>
   )

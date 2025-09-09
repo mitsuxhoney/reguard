@@ -8,13 +8,15 @@ export const TermsOfServicesPage: React.FC = () => {
   const [signUpModal, setSignUpModal] = useState<{
     isOpen: boolean
     type: 'signup' | 'demo' | 'trial'
+    formSource?: 'footer-cta'
   }>({
     isOpen: false,
     type: 'signup',
+    formSource: 'footer-cta',
   })
 
-  const openSignUpModal = (type: 'signup' | 'demo' | 'trial') => {
-    setSignUpModal({ isOpen: true, type })
+  const openSignUpModal = (type: 'signup' | 'demo' | 'trial', formSource) => {
+    setSignUpModal({ isOpen: true, type, formSource })
   }
 
   const closeSignUpModal = () => {
@@ -134,7 +136,7 @@ export const TermsOfServicesPage: React.FC = () => {
               </div>
               <div className="flex gap-3">
                 <button
-                  onClick={() => openSignUpModal('demo')}
+                  onClick={() => openSignUpModal('demo', 'footer-cta')}
                   className="bg-red-600 hover:bg-red-700 text-white px-5 py-3 rounded-lg font-semibold transition-colors"
                 >
                   Book a Demo
@@ -156,6 +158,7 @@ export const TermsOfServicesPage: React.FC = () => {
         isOpen={signUpModal.isOpen}
         onClose={closeSignUpModal}
         type={signUpModal.type}
+        formSource={signUpModal.formSource}
       />
     </div>
   )

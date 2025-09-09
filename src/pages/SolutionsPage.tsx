@@ -117,7 +117,7 @@ export const SolutionsPage: React.FC = () => {
     setSignUpModal({ isOpen: true, type, formSource })
   }
   const closeSignUpModal = () => {
-    setSignUpModal({ isOpen: false, type: 'signup', formSource: 'header' })
+    setSignUpModal({ isOpen: false, type: 'signup' })
   }
 
   return (

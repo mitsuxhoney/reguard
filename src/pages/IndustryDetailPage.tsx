@@ -22,13 +22,15 @@ export const IndustryDetailPage: React.FC = () => {
   const [signUpModal, setSignUpModal] = useState<{
     isOpen: boolean
     type: 'signup' | 'demo' | 'trial'
+    formSource?: 'hero-cta' | 'footer-cta'
   }>({
     isOpen: false,
     type: 'signup',
+    formSource: 'hero-cta',
   })
 
-  const openSignUpModal = (type: 'signup' | 'demo' | 'trial') => {
-    setSignUpModal({ isOpen: true, type })
+  const openSignUpModal = (type: 'signup' | 'demo' | 'trial', formSource) => {
+    setSignUpModal({ isOpen: true, type, formSource })
   }
 
   const closeSignUpModal = () => {
@@ -484,14 +486,14 @@ export const IndustryDetailPage: React.FC = () => {
 
               <div className="flex flex-col sm:flex-row gap-4">
                 <button
-                  onClick={() => openSignUpModal('demo')}
+                  onClick={() => openSignUpModal('demo', 'hero-cta')}
                   className="bg-white hover:bg-gray-100 text-gray-900 px-8 py-4 rounded-lg text-lg font-semibold transition-colors shadow-lg hover:shadow-xl flex items-center space-x-2"
                 >
                   <Play size={20} />
                   <span>Request Demo</span>
                 </button>
                 <button
-                  onClick={() => openSignUpModal('trial')}
+                  onClick={() => openSignUpModal('trial', 'hero-cta')}
                   className="border-2 border-white hover:bg-white hover:text-gray-900 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors flex items-center space-x-2"
                 >
                   <BookOpen size={20} />
@@ -656,13 +658,13 @@ export const IndustryDetailPage: React.FC = () => {
               </h3>
               <div className="space-y-4">
                 <button
-                  onClick={() => openSignUpModal('demo')}
+                  onClick={() => openSignUpModal('demo', 'footer-cta')}
                   className={`w-full bg-gradient-to-r ${industry.gradient} hover:shadow-lg text-white py-3 px-4 rounded-lg font-semibold transition-all transform hover:-translate-y-0.5`}
                 >
                   Request Industry Demo
                 </button>
                 <button
-                  onClick={() => openSignUpModal('trial')}
+                  onClick={() => openSignUpModal('trial', 'footer-cta')}
                   className="w-full border-2 border-gray-300 text-gray-700 hover:border-gray-400 hover:text-gray-900 py-3 px-4 rounded-lg font-semibold transition-colors"
                 >
                   Start Free Trial
@@ -750,6 +752,7 @@ export const IndustryDetailPage: React.FC = () => {
         isOpen={signUpModal.isOpen}
         onClose={closeSignUpModal}
         type={signUpModal.type}
+        formSource={signUpModal.formSource}
       />
     </div>
   )

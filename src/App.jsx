@@ -19,11 +19,13 @@ import { PrivacyPolicyPage } from './pages/PrivacyPolicyPage'
 import { TermsOfServicesPage } from './pages/TermsOfServicesPage'
 import { ScrollToTop } from './components/ScrollToTop'
 import { ScrollToTopButton } from './components/ScrollToTopButton.jsx'
+import { Toaster } from 'sonner'
 function App() {
   return (
     <>
       <ScrollToTop />
       <ScrollToTopButton />
+      <Toaster position="top-right" richColors />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/solutions" element={<SolutionsPage />} />

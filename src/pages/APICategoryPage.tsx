@@ -363,13 +363,13 @@ export const APICategoryPage: React.FC = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
-              onClick={() => openSignUpModal('trial')}
+              onClick={() => openSignUpModal('trial', 'footer-cta')}
               className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors shadow-lg hover:shadow-xl"
             >
               Get API Key
             </button>
             <button
-              onClick={() => openSignUpModal('demo')}
+              onClick={() => openSignUpModal('demo', 'footer-cta')}
               className="border-2 border-red-600 hover:bg-red-600 hover:text-white text-red-600 px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
             >
               Schedule Demo

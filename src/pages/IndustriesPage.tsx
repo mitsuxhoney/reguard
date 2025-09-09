@@ -18,13 +18,23 @@ export const IndustriesPage: React.FC = () => {
   const [signUpModal, setSignUpModal] = useState<{
     isOpen: boolean
     type: 'signup' | 'demo' | 'trial'
+    formSource?:
+      | 'header'
+      | 'hero-cta'
+      | 'footer-cta'
+      | 'cryptocurrency'
+      | 'banking'
+      | 'fintech'
+      | 'insurance'
+      | 'mutualfunds'
   }>({
     isOpen: false,
     type: 'signup',
+    formSource: 'header',
   })
 
-  const openSignUpModal = (type: 'signup' | 'demo' | 'trial') => {
-    setSignUpModal({ isOpen: true, type })
+  const openSignUpModal = (type: 'signup' | 'demo' | 'trial', formSource) => {
+    setSignUpModal({ isOpen: true, type, formSource })
   }
 
   const closeSignUpModal = () => {
@@ -38,6 +48,7 @@ export const IndustriesPage: React.FC = () => {
       description:
         'Comprehensive RegTech solutions for banks and Non-Banking Financial Companies with advanced KYC, AML compliance, and risk management capabilities.',
       icon: Building2,
+      form_source: 'banking',
       gradient: 'from-blue-600 to-blue-800',
       bgGradient: 'from-blue-50 to-blue-100',
       image:
@@ -53,6 +64,7 @@ export const IndustriesPage: React.FC = () => {
     {
       id: 'fintech-payments',
       title: 'Fintech & Payments',
+      form_source: 'fintech',
       description:
         'Identity verification and fraud prevention solutions for fintech companies and payment processors with real-time screening and compliance automation.',
       icon: TrendingUp,
@@ -74,6 +86,7 @@ export const IndustriesPage: React.FC = () => {
       description:
         'Risk assessment and fraud prevention solutions for insurance companies and InsurTech startups with comprehensive due diligence and claim verification.',
       icon: Shield,
+      form_source: 'insurance',
       gradient: 'from-purple-600 to-purple-800',
       bgGradient: 'from-purple-50 to-purple-100',
       image:
@@ -92,6 +105,7 @@ export const IndustriesPage: React.FC = () => {
       description:
         'Investor verification and compliance automation for mutual fund companies and Asset Management Companies with comprehensive KYC and due diligence.',
       icon: TrendingUp,
+      form_source: 'mutualfunds',
       gradient: 'from-orange-600 to-orange-800',
       bgGradient: 'from-orange-50 to-orange-100',
       image:
@@ -110,6 +124,7 @@ export const IndustriesPage: React.FC = () => {
       description:
         'Advanced KYC and AML compliance solutions for cryptocurrency exchanges and digital asset platforms with enhanced due diligence and transaction monitoring.',
       icon: Coins,
+      form_source: 'cryptocurrency',
       gradient: 'from-yellow-600 to-yellow-800',
       bgGradient: 'from-yellow-50 to-yellow-100',
       image:
@@ -285,7 +300,9 @@ export const IndustriesPage: React.FC = () => {
                       <ArrowRight size={16} />
                     </Link>
                     <button
-                      onClick={() => openSignUpModal('demo')}
+                      onClick={() =>
+                        openSignUpModal('demo', industry.form_source)
+                      }
                       className="border-2 border-gray-300 hover:border-gray-400 text-gray-700 hover:text-gray-900 px-6 py-3 rounded-lg font-semibold transition-colors"
                     >
                       Request Demo
@@ -310,13 +327,13 @@ export const IndustriesPage: React.FC = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
-              onClick={() => openSignUpModal('demo')}
+              onClick={() => openSignUpModal('demo', 'footer-cta')}
               className="bg-white hover:bg-gray-100 text-red-600 px-8 py-4 rounded-lg text-lg font-semibold transition-colors shadow-lg hover:shadow-xl"
             >
               Schedule Industry Demo
             </button>
             <button
-              onClick={() => openSignUpModal('trial')}
+              onClick={() => openSignUpModal('trial', 'footer-cta')}
               className="border-2 border-white hover:bg-white hover:text-red-600 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
             >
               Start Free Trial
@@ -330,6 +347,7 @@ export const IndustriesPage: React.FC = () => {
         isOpen={signUpModal.isOpen}
         onClose={closeSignUpModal}
         type={signUpModal.type}
+        formSource={signUpModal.formSource}
       />
     </div>
   )

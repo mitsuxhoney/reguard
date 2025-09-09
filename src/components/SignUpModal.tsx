@@ -30,6 +30,7 @@ export const SignUpModal: React.FC<SignUpModalProps> = ({
   formSource,
 }) => {
   const location = useLocation()
+
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -99,8 +100,54 @@ export const SignUpModal: React.FC<SignUpModalProps> = ({
     }
   }
 
+  const validateForm = () => {
+    const errors = []
+
+    // Check required fields
+    if (!formData.firstName.trim()) {
+      errors.push('First Name is required')
+    }
+
+    if (!formData.lastName.trim()) {
+      errors.push('Last Name is required')
+    }
+
+    if (!formData.email.trim()) {
+      errors.push('Work Email is required')
+    } else {
+      // Email format validation
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+      if (!emailRegex.test(formData.email)) {
+        errors.push('Please enter a valid email address')
+      }
+    }
+
+    if (!formData.company.trim()) {
+      errors.push('Company is required')
+    }
+
+    // Phone validation (only if provided)
+    if (formData.phone.trim()) {
+      const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/
+      if (!phoneRegex.test(formData.phone.replace(/[\s\-\(\)]/g, ''))) {
+        errors.push('Please enter a valid phone number')
+      }
+    }
+
+    return errors
+  }
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+
+    // Validate form
+    const validationErrors = validateForm()
+
+    if (validationErrors.length > 0) {
+      // Show first validation error
+      toast.error(validationErrors[0])
+      return
+    }
     try {
       // Insert the form data into your Supabase table
 
@@ -110,12 +157,12 @@ export const SignUpModal: React.FC<SignUpModalProps> = ({
         .from('contact_messages') // Replace with your table name
         .insert([
           {
-            firstName: formData.firstName,
-            lastName: formData.lastName,
-            email: formData.email,
-            company: formData.company,
-            phone: formData.phone,
-            jobTitle: formData.jobTitle,
+            firstName: formData.firstName.trim(),
+            lastName: formData.lastName.trim(),
+            email: formData.email.trim().toLowerCase(),
+            company: formData.company.trim(),
+            phone: formData.phone.trim(),
+            jobTitle: formData.jobTitle.trim(),
             referer: location.pathname,
             form_source: formSource,
           },

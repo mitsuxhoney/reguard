@@ -23,6 +23,16 @@ const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
 const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY
 const supabase = createClient(supabaseUrl, supabaseKey)
 
+const questions = [
+  { label: 'Digital KYC Solution', value: 'Digital KYC Solution' },
+  { label: 'KYC APIs', value: 'KYC APIs' },
+  { label: 'Compliance AI Agent', value: 'Compliance AI Agent' },
+  {
+    label: 'Post Onboarding Compliance',
+    value: 'Post Onboarding Compliance',
+  },
+]
+
 export const SignUpModal: React.FC<SignUpModalProps> = ({
   isOpen,
   onClose,
@@ -37,7 +47,7 @@ export const SignUpModal: React.FC<SignUpModalProps> = ({
     email: '',
     company: '',
     phone: '',
-    jobTitle: '',
+    question: '',
   })
 
   if (!isOpen) return null
@@ -134,6 +144,10 @@ export const SignUpModal: React.FC<SignUpModalProps> = ({
       }
     }
 
+    if (!formData.question.trim()) {
+      errors.push('Please select what you are looking for')
+    }
+
     return errors
   }
 
@@ -157,12 +171,13 @@ export const SignUpModal: React.FC<SignUpModalProps> = ({
         .from('contact_messages') // Replace with your table name
         .insert([
           {
-            firstName: formData.firstName.trim(),
-            lastName: formData.lastName.trim(),
+            first_name: formData.firstName.trim(),
+            last_name: formData.lastName.trim(),
+            full_name: `${formData.firstName.trim()} ${formData.lastName.trim()}`,
             email: formData.email.trim().toLowerCase(),
             company: formData.company.trim(),
             phone: formData.phone.trim(),
-            jobTitle: formData.jobTitle.trim(),
+            question: formData.question.trim(),
             referer: location.pathname,
             form_source: formSource,
           },
@@ -178,7 +193,7 @@ export const SignUpModal: React.FC<SignUpModalProps> = ({
         email: '',
         company: '',
         phone: '',
-        jobTitle: '',
+        question: '',
       })
 
       onClose() // Close the dialog after successful submission
@@ -215,7 +230,7 @@ export const SignUpModal: React.FC<SignUpModalProps> = ({
                 }}
               />
             </div>
-                
+
             {/* Cover Image */}
             <div className="absolute inset-0">
               <img
@@ -271,7 +286,7 @@ export const SignUpModal: React.FC<SignUpModalProps> = ({
           </div>
 
           {/* Right Form Section */}
-          <div className="w-full lg:w-1/2 my-4 px-8 md:my-0 sm:p-8 lg:p-12 flex flex-col items-center lg:justify-center overflow-y-auto max-h-[90vh]">
+          <div className="w-full lg:w-1/2 my-4 px-8 md:my-0 sm:p-8 lg:p-12 flex flex-col items-center overflow-y-auto max-h-[90vh]">
             <div className="w-full max-w-md">
               <div className="flex items-center justify-between mb-8">
                 <div>
@@ -376,7 +391,7 @@ export const SignUpModal: React.FC<SignUpModalProps> = ({
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 gap-4">
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
                       Phone Number
@@ -396,18 +411,25 @@ export const SignUpModal: React.FC<SignUpModalProps> = ({
                       />
                     </div>
                   </div>
+                </div>
+                <div className="grid grid-cols-1 gap-4">
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
-                      Job Title
+                      What are you looking for ? *
                     </label>
-                    <input
-                      type="text"
-                      name="jobTitle"
-                      value={formData.jobTitle}
+                    <select
+                      name="question"
+                      required
+                      value={formData.question}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-200 bg-gray-50 focus:bg-white"
-                      placeholder="e.g. CTO, Product Manager"
-                    />
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-200"
+                    >
+                      {questions.map((question) => (
+                        <option key={question.label} value={question.value}>
+                          {question.label}
+                        </option>
+                      ))}
+                    </select>
                   </div>
                 </div>
 
@@ -419,8 +441,8 @@ export const SignUpModal: React.FC<SignUpModalProps> = ({
                     {type === 'demo'
                       ? 'Schedule Demo'
                       : type === 'trial'
-                        ? 'Get API Key'
-                        : 'Get Started'}
+                      ? 'Get API Key'
+                      : 'Get Started'}
                   </button>
                 </div>
 

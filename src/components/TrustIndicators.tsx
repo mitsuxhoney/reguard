@@ -74,28 +74,28 @@ export const TrustIndicators: React.FC = () => {
                     alt="Airbnb"
                     width={80}
                     height={80}  
-                    className="object-contain"
+                    className="object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
                   />
                 </div>
-                <div className="flex items-center justify-center h-12 w-32  transition-all duration-300">
+                <div className="flex items-center justify-center h-12 w-32 transition-all duration-300">
                   <img 
                     src={BetwayLogo}
                     alt="Betway" 
-                    className="h-8 w-auto object-contain"
+                    className="h-12 w-auto object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
                   />
                 </div>
                 <div className="flex items-center justify-center h-12 w-32 transition-all duration-300">
                   <img 
                     src={Dream11Logo}
                     alt="Dream11" 
-                    className="h-20 w-auto object-contain"
+                    className="h-20 w-auto object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
                   />
                 </div>
                 <div className="flex items-center justify-center h-12 w-32 transition-all duration-300">
                   <img 
                     src={MetaLogo}
                     alt="Meta" 
-                    className="h-12 w-auto object-contain"
+                    className="h-12 w-auto object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
                   />
                 </div>
                 <div className="flex items-center justify-center h-12 w-32 transition-all duration-300">
@@ -104,7 +104,7 @@ export const TrustIndicators: React.FC = () => {
                     alt="Reddit"
                     width={200}
                     height={100} 
-                    className=" object-contain"
+                    className="object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
                   />
                 </div>
                 <div className="flex items-center justify-center h-12 w-32 transition-all duration-300">
@@ -113,17 +113,18 @@ export const TrustIndicators: React.FC = () => {
                     alt="Ono"
                     width={100}
                     height={90} 
-                    className=" object-contain"
+                    className="object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
                   />
                 </div>
                 <div className="flex items-center justify-center h-12 w-32 transition-all duration-300">
                   <img 
                     src={Probo}
                     alt="Probo" 
-                    className="h-24 w-full object-contain"
+                    className="h-24 w-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
                   />
                 </div>
               </div>
+
               {/* Duplicate set for seamless loop */}
               <div className="flex space-x-12 items-center min-w-max">
                 <div className="flex items-center justify-center h-14 w-32 transition-all duration-300">
@@ -132,28 +133,28 @@ export const TrustIndicators: React.FC = () => {
                     alt="Airbnb"
                     width={80}
                     height={80}  
-                    className=" object-contain"
+                    className="object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
                   />
                 </div>
-                <div className="flex items-center justify-center h-12 w-32  transition-all duration-300">
+                <div className="flex items-center justify-center h-12 w-32 transition-all duration-300">
                   <img 
                     src={BetwayLogo}
                     alt="Betway" 
-                    className="h-12 w-auto object-contain"
+                    className="h-12 w-auto object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
                   />
                 </div>
                 <div className="flex items-center justify-center h-12 w-32 transition-all duration-300">
                   <img 
                     src={Dream11Logo}
                     alt="Dream11" 
-                    className="h-20 w-auto object-contain"
+                    className="h-20 w-auto object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
                   />
                 </div>
                 <div className="flex items-center justify-center h-12 w-32 transition-all duration-300">
                   <img 
                     src={MetaLogo}
                     alt="Meta" 
-                    className="h-8 w-auto object-contain"
+                    className="h-12 w-auto object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
                   />
                 </div>
                 <div className="flex items-center justify-center h-12 w-32 transition-all duration-300">
@@ -162,7 +163,7 @@ export const TrustIndicators: React.FC = () => {
                     alt="Reddit"
                     width={200}
                     height={100} 
-                    className=" object-contain"
+                    className="object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
                   />
                 </div>
                 <div className="flex items-center justify-center h-12 w-32 transition-all duration-300">
@@ -171,17 +172,18 @@ export const TrustIndicators: React.FC = () => {
                     alt="Ono"
                     width={100}
                     height={90} 
-                    className=" object-contain"
+                    className="object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
                   />
                 </div>
                 <div className="flex items-center justify-center h-12 w-32 transition-all duration-300">
                   <img 
                     src={Probo}
                     alt="Probo" 
-                    className="h-24 w-full object-contain"
+                    className="h-24 w-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
                   />
                 </div>
               </div>
+
             </div>
           </div>
         </div>

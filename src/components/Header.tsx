@@ -683,12 +683,12 @@ export const Header: React.FC = () => {
           </nav>
 
           <div className="hidden lg:flex items-center space-x-3">
-            <button
+            {/* <button
               onClick={redirectToConsole}
               className="text-gray-700 hover:text-red-600 px-4 py-2.5 text-sm font-medium transition-all duration-200 rounded-lg hover:bg-gray-50"
             >
               Sign In
-            </button>
+            </button> */}
             <button
               onClick={() => openSignUpModal('signup', 'header')}
               className="bg-red-600 hover:bg-red-700 text-white px-6 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 shadow-sm hover:shadow-md"

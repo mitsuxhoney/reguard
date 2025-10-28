@@ -167,23 +167,23 @@ export const ContactPage: React.FC = () => {
       icon: Mail,
       title: 'Email Us',
       description: "Send us an email and we'll respond within 24 hours",
-      contact: 'hello@reguard.com',
+      contact: 'business@reguardai.com',
       action: 'Send Email',
     },
-    {
-      icon: Phone,
-      title: 'Call Us',
-      description: 'Speak directly with our team during business hours',
-      contact: '+91 80 4567 8900',
-      action: 'Call Now',
-    },
-    {
-      icon: MessageCircle,
-      title: 'Live Chat',
-      description: 'Chat with our support team for immediate assistance',
-      contact: 'Available 24/7',
-      action: 'Start Chat',
-    },
+    // {
+    //   icon: Phone,
+    //   title: 'Call Us',
+    //   description: 'Speak directly with our team during business hours',
+    //   contact: '+91 80 4567 8900',
+    //   action: 'Call Now',
+    // },
+    // {
+    //   icon: MessageCircle,
+    //   title: 'Live Chat',
+    //   description: 'Chat with our support team for immediate assistance',
+    //   contact: 'Available 24/7',
+    //   action: 'Start Chat',
+    // },
     {
       icon: Users,
       title: 'Schedule Demo',
@@ -196,27 +196,17 @@ export const ContactPage: React.FC = () => {
 
   const offices = [
     {
-      city: 'Bangalore',
-      address: '123 Tech Park, Electronic City, Bangalore 560100, India',
-      phone: '+91 80 4567 8900',
-      email: 'bangalore@reguard.com',
-      isHeadquarters: true,
-    },
-    {
-      city: 'Mumbai',
-      address:
-        '456 Business District, Bandra Kurla Complex, Mumbai 400051, India',
-      phone: '+91 22 6789 0123',
-      email: 'mumbai@reguard.com',
-      isHeadquarters: false,
-    },
-    {
       city: 'Delhi',
       address: '789 Corporate Center, Connaught Place, New Delhi 110001, India',
-      phone: '+91 11 2345 6789',
-      email: 'delhi@reguard.com',
+      email: 'business@reguardai.com',
       isHeadquarters: false,
     },
+    // {
+    //   city: 'Delhi',
+    //   address: '789 Corporate Center, Connaught Place, New Delhi 110001, India',
+    //   email: 'business@reguardai.com',
+    //   isHeadquarters: false,
+    // },
   ]
 
   return (
@@ -308,11 +298,11 @@ export const ContactPage: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:flex gap-8 justify-center items-center">
             {contactMethods.map((method, index) => (
               <div
                 key={index}
-                className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 text-center"
+                className="max-w-lg bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 text-center"
               >
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-red-100 rounded-full mb-4">
                   <method.icon className="w-8 h-8 text-red-600" />
@@ -513,10 +503,10 @@ export const ContactPage: React.FC = () => {
                         <MapPin size={16} className="text-gray-500 mt-0.5" />
                         <span className="text-gray-600">{office.address}</span>
                       </div>
-                      <div className="flex items-center space-x-2">
+                      {/* <div className="flex items-center space-x-2">
                         <Phone size={16} className="text-gray-500" />
                         <span className="text-gray-600">{office.phone}</span>
-                      </div>
+                      </div> */}
                       <div className="flex items-center space-x-2">
                         <Mail size={16} className="text-gray-500" />
                         <span className="text-gray-600">{office.email}</span>

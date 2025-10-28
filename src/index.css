@@ -17,6 +17,9 @@
     font-weight: 600;
     letter-spacing: -0.025em;
   }
+  :root {
+    --elegant-font: 'Great Vibes';
+  }
 }
 
 @keyframes scroll {

@@ -7,8 +7,9 @@ import { APIDiscovery } from '../components/APIDiscovery'
 import { TrustIndicators } from '../components/TrustIndicators'
 import { CTA } from '../components/CTA'
 import { Footer } from '../components/Footer'
+import { Mail, Phone, MapPin, Clock, Send, CheckCircle } from 'lucide-react'
 import { SignUpModal } from '../components/SignUpModal'
-import { Entropy } from '../components/entropy.jsx'
+// import { Entropy } from '../components/entropy.jsx'
 export const HomePage: React.FC = () => {
   const [signUpModal, setSignUpModal] = useState<{
     isOpen: boolean
@@ -19,6 +20,34 @@ export const HomePage: React.FC = () => {
     type: 'signup',
     formSource: 'header',
   })
+
+
+  const contactInfo = [
+    // {
+    //   icon: Phone,
+    //   title: 'Phone',
+    //   details: '+91 96546 07040',
+    //   subtitle: 'Mon-Fri 9AM-6PM IST',
+    // },
+    {
+      icon: Mail,
+      title: 'Email',
+      details: ' business@reguardai.com',
+      subtitle: 'We respond within 24 hours',
+    },
+    {
+      icon: MapPin,
+      title: 'Office',
+      details: '44 IIND FLOOR REGAL BUILDING',
+      subtitle: 'CONNAUGHT PLACE, NEW DELHI - 110001',
+    },
+    {
+      icon: Clock,
+      title: 'Business Hours',
+      details: 'Monday - Friday',
+      subtitle: '9:00 AM - 7:00 PM IST',
+    },
+  ]
 
   const openSignUpModal = (
     type: 'signup' | 'demo' | 'trial',
@@ -65,9 +94,9 @@ export const HomePage: React.FC = () => {
         <meta property="og:url" content="https://reguard.com" />
       </Helmet>
       <Header />
-      <div className='w-full'>
+      {/* <div className='w-full'>
         <Entropy />
-      </div>  
+      </div>   */}
       <Hero
         onOpenSignUp={openSignUpModal}
         onScrollToAPIs={scrollToAPIDiscovery}

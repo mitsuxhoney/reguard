@@ -4,6 +4,8 @@ import { Header } from '../components/Header'
 import { Footer } from '../components/Footer'
 import { SignUpModal } from '../components/SignUpModal'
 import { Link } from 'react-router-dom'
+import ContactHero from "../assets/CareerHero.png"
+import Mission from "../assets/mission.png"
 import {
   Users,
   MapPin,
@@ -204,7 +206,7 @@ export const CareersPage: React.FC = () => {
             </div>
             <div className="relative">
               <img
-                src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop"
+                src={ContactHero}
                 alt="ReGuard India Team"
                 className="rounded-2xl shadow-2xl"
               />
@@ -384,7 +386,7 @@ export const CareersPage: React.FC = () => {
             </div>
             <div className="relative">
               <img
-                src="https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop"
+                src={Mission}
                 alt="Team Culture"
                 className="rounded-2xl shadow-xl"
               />

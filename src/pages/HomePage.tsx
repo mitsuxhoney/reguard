@@ -22,33 +22,7 @@ export const HomePage: React.FC = () => {
   })
 
 
-  const contactInfo = [
-    // {
-    //   icon: Phone,
-    //   title: 'Phone',
-    //   details: '+91 96546 07040',
-    //   subtitle: 'Mon-Fri 9AM-6PM IST',
-    // },
-    {
-      icon: Mail,
-      title: 'Email',
-      details: ' business@reguardai.com',
-      subtitle: 'We respond within 24 hours',
-    },
-    {
-      icon: MapPin,
-      title: 'Office',
-      details: '44 IIND FLOOR REGAL BUILDING',
-      subtitle: 'CONNAUGHT PLACE, NEW DELHI - 110001',
-    },
-    {
-      icon: Clock,
-      title: 'Business Hours',
-      details: 'Monday - Friday',
-      subtitle: '9:00 AM - 7:00 PM IST',
-    },
-  ]
-
+  
   const openSignUpModal = (
     type: 'signup' | 'demo' | 'trial',
     formSource: 'cta' | 'header'

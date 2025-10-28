@@ -257,7 +257,7 @@ export const CareersPage: React.FC = () => {
       </section>
 
       {/* Open Positions */}
-      <section className="py-20 bg-white">
+      {/* <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="font-gilroy text-3xl font-bold text-gray-900 mb-4">
@@ -308,7 +308,7 @@ export const CareersPage: React.FC = () => {
 
                   <div className="mt-4 lg:mt-0 lg:ml-6">
                     <a
-                      href="mailto:careers@reguard.com?subject=Application for Software Engineer Position"
+                      href="mailto:business@reguardai.com?subject=Application for Software Engineer Position"
                       className="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors flex items-center space-x-2"
                     >
                       <span>Apply Now</span>
@@ -320,7 +320,49 @@ export const CareersPage: React.FC = () => {
             ))}
           </div>
         </div>
+      </section> */}
+ {/* Open Positions (placeholder when none are available) */}
+      <section className="py-20 bg-white">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <Users className="w-16 h-16 text-red-600 mx-auto mb-4" />
+          <h2 className="font-gilroy text-3xl font-bold text-gray-900 mb-2">
+            No Open Positions Right Now
+          </h2>
+          <p className="font-inter text-lg text-gray-600 max-w-2xl mx-auto mb-6">
+            We don't have any active job openings at the moment. We're always
+            growing — if you'd like to be notified when a role opens up,
+            please send your resume or sign up for updates.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="mailto:business@reguardai.com?subject=Resume Submission - General Application"
+              className="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors shadow-md"
+            >
+              Send Your Resume
+            </a>
+
+            <button
+              onClick={() => openSignUpModal('signup', 'careers-notify')}
+              className="border-2 border-red-600 text-red-600 px-6 py-3 rounded-lg font-semibold hover:bg-red-50 transition-colors"
+            >
+              Notify Me When Roles Open
+            </button>
+          </div>
+
+          <p className="text-sm text-gray-400 mt-6">
+            Prefer to learn more about our team?{' '}
+            <button
+              onClick={() => openSignUpModal('demo', 'careers-learnmore')}
+              className="underline text-red-600 hover:text-red-700"
+            >
+              Learn more about us
+            </button>
+            .
+          </p>
+        </div>
       </section>
+
 
       {/* Culture */}
       <section className="py-20 bg-gray-50">
@@ -408,7 +450,7 @@ export const CareersPage: React.FC = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="mailto:careers@reguard.com?subject=Resume Submission - General Application"
+              href="mailto:business@reguardai.com?subject=Resume Submission - General Application"
               className="bg-white hover:bg-gray-100 text-red-600 px-8 py-4 rounded-lg text-lg font-semibold transition-colors shadow-lg hover:shadow-xl text-center"
             >
               Send Your Resume

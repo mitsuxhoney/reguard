@@ -8,7 +8,7 @@ import { TrustIndicators } from '../components/TrustIndicators'
 import { CTA } from '../components/CTA'
 import { Footer } from '../components/Footer'
 import { SignUpModal } from '../components/SignUpModal'
-
+import { Entropy } from '../components/entropy.jsx'
 export const HomePage: React.FC = () => {
   const [signUpModal, setSignUpModal] = useState<{
     isOpen: boolean
@@ -65,6 +65,9 @@ export const HomePage: React.FC = () => {
         <meta property="og:url" content="https://reguard.com" />
       </Helmet>
       <Header />
+      <div className='w-full'>
+        <Entropy />
+      </div>  
       <Hero
         onOpenSignUp={openSignUpModal}
         onScrollToAPIs={scrollToAPIDiscovery}

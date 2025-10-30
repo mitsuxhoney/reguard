@@ -308,9 +308,6 @@ export const SignUpModal: React.FC<SignUpModalProps> = ({
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
-                      First Name *
-                    </label>
                     <div className="relative">
                       <User
                         className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
@@ -323,14 +320,11 @@ export const SignUpModal: React.FC<SignUpModalProps> = ({
                         value={formData.firstName}
                         onChange={handleInputChange}
                         className="w-full pl-11 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-200 bg-gray-50 focus:bg-white"
-                        placeholder="John"
+                        placeholder="First Name*"
                       />
                     </div>
                   </div>
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
-                      Last Name *
-                    </label>
                     <div className="relative">
                       <User
                         className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
@@ -343,16 +337,13 @@ export const SignUpModal: React.FC<SignUpModalProps> = ({
                         value={formData.lastName}
                         onChange={handleInputChange}
                         className="w-full pl-11 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-200 bg-gray-50 focus:bg-white"
-                        placeholder="Doe"
+                        placeholder="Last Name*"
                       />
                     </div>
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
-                    Work Email *
-                  </label>
                   <div className="relative">
                     <Mail
                       className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
@@ -365,15 +356,12 @@ export const SignUpModal: React.FC<SignUpModalProps> = ({
                       value={formData.email}
                       onChange={handleInputChange}
                       className="w-full pl-11 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-200 bg-gray-50 focus:bg-white"
-                      placeholder="john@company.com"
+                      placeholder="Work Email*"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
-                    Company *
-                  </label>
                   <div className="relative">
                     <Building2
                       className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
@@ -386,16 +374,13 @@ export const SignUpModal: React.FC<SignUpModalProps> = ({
                       value={formData.company}
                       onChange={handleInputChange}
                       className="w-full pl-11 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-200 bg-gray-50 focus:bg-white"
-                      placeholder="Your Company"
+                      placeholder="Your Company*"
                     />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 gap-4">
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
-                      Phone Number
-                    </label>
                     <div className="relative">
                       <Phone
                         className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
@@ -407,7 +392,7 @@ export const SignUpModal: React.FC<SignUpModalProps> = ({
                         value={formData.phone}
                         onChange={handleInputChange}
                         className="w-full pl-11 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-200 bg-gray-50 focus:bg-white"
-                        placeholder="+91 1234567890"
+                        placeholder="Phone Number"
                       />
                     </div>
                   </div>

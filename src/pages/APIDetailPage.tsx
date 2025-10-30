@@ -378,9 +378,6 @@ export const APIDetailPage: React.FC = () => {
                 >
                   Get API Key
                 </button>
-                <button className="w-full border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white py-3 px-4 rounded-lg font-semibold transition-colors">
-                  View Documentation
-                </button>
                 <button
                   onClick={() => openSignUpModal('demo')}
                   className="w-full text-red-600 hover:text-red-700 py-3 px-4 rounded-lg font-semibold transition-colors flex items-center justify-center space-x-2"
@@ -418,34 +415,6 @@ export const APIDetailPage: React.FC = () => {
             </div>
 
             {/* Support */}
-            <div className="bg-white border border-gray-200 rounded-lg p-6">
-              <h3 className="font-gilroy text-lg font-bold text-gray-900 mb-4">
-                Need Help?
-              </h3>
-              <div className="space-y-3">
-                <a
-                  href="#"
-                  className="flex items-center space-x-2 text-gray-600 hover:text-red-600 transition-colors"
-                >
-                  <BookOpen size={16} />
-                  <span>API Documentation</span>
-                </a>
-                <a
-                  href="#"
-                  className="flex items-center space-x-2 text-gray-600 hover:text-red-600 transition-colors"
-                >
-                  <Code size={16} />
-                  <span>Code Examples</span>
-                </a>
-                <a
-                  href="#"
-                  className="flex items-center space-x-2 text-gray-600 hover:text-red-600 transition-colors"
-                >
-                  <ExternalLink size={16} />
-                  <span>Contact Support</span>
-                </a>
-              </div>
-            </div>
           </div>
         </div>
       </div>

@@ -660,10 +660,6 @@ export const SolutionDetailPage: React.FC = () => {
                 >
                   Start Free Trial
                 </button>
-                <button className="w-full text-gray-600 hover:text-gray-800 py-3 px-4 rounded-lg font-semibold transition-colors flex items-center justify-center space-x-2">
-                  <ExternalLink size={16} />
-                  <span>View Documentation</span>
-                </button>
               </div>
             </div>
 
@@ -710,7 +706,7 @@ export const SolutionDetailPage: React.FC = () => {
             </div>
 
             {/* Support */}
-            <div className="bg-white border border-gray-200 rounded-xl p-6">
+            {/* <div className="bg-white border border-gray-200 rounded-xl p-6">
               <h3 className="font-gilroy text-xl font-bold text-gray-900 mb-6">
                 Need Help?
               </h3>
@@ -737,7 +733,7 @@ export const SolutionDetailPage: React.FC = () => {
                   <span>Contact Support</span>
                 </a>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

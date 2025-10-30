@@ -78,8 +78,8 @@ export const APIDetailPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
       <SEO title={apiData.metaName} description={apiData.metaDescription}/>
-      {/* <Helmet>
-        <title>{apiData.name} - RegTech API Documentation | Reguard</title>
+      <Helmet>
+        <  title>{apiData.name} - RegTech API Documentation | Reguard</title>
         <meta
           name="description"
           content={`${apiData.longDescription} Integrate ${apiData.name} with ${apiData.accuracy} accuracy, ${apiData.responseTime} response time, and enterprise-grade security. Complete API documentation, code examples, and pricing.`}
@@ -104,7 +104,7 @@ export const APIDetailPage: React.FC = () => {
           property="og:url"
           content={`https://reguard.com/apis/${category}/${apiId}`}
         />
-      </Helmet> */}
+      </Helmet>
       <Header />
 
       {/* Breadcrumb */}

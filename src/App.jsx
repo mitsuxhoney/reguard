@@ -20,6 +20,7 @@ import { TermsOfServicesPage } from './pages/TermsOfServicesPage'
 import { ScrollToTop } from './components/ScrollToTop'
 import { ScrollToTopButton } from './components/ScrollToTopButton.jsx'
 import { Toaster } from 'sonner'
+import { Error404 } from './pages/Error404.jsx'
 function App() {
   return (
     <>
@@ -54,6 +55,7 @@ function App() {
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
         <Route path="/terms-of-services" element={<TermsOfServicesPage />} />
+        <Route path="*" element={<Error404 />} />
       </Routes>
     </>
   )

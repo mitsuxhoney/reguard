@@ -1,5 +1,7 @@
 // Comprehensive API data for all RegTech APIs
 export interface APIData {
+  metaName?: string;
+  metaDescription?: string;
   id: string;
   name: string;
   category: string;
@@ -26,6 +28,8 @@ export interface APIData {
 export const apiDatabase: Record<string, APIData> = {
   // KYC APIs
   'identity-document-verification': {
+    metaName: 'Identity Document Verification API | Reguard AI',
+    metaDescription: 'Verify identity documents instantly with Reguard AI. Our powerful API ensures accurate, secure, and fast KYC verification for seamless user onboarding.',
     id: 'identity-document-verification',
     name: 'Identity Document Verification API',
     category: 'KYC',
@@ -116,6 +120,8 @@ response = requests.post(url, headers=headers, json=data)`,
     },
   },
   'facial-recognition-match': {
+    metaName: 'Facial Recognition Match API | Verify Faces with Reguard AI',
+    metaDescription: 'Use Reguard AI Facial Recognition Match API to verify identities instantly. Detect face matches with high accuracy for secure and seamless KYC verification.',
     id: 'facial-recognition-match',
     name: 'Facial Recognition Match API',
     category: 'KYC',
@@ -203,6 +209,8 @@ response = requests.post(url, headers=headers, json=data)`,
     },
   },
   'address-verification': {
+    metaName:'Address Verification API | Validate Customer Data – Reguard AI',
+    metaDescription:'Enhance onboarding with Reguard AI Address Verification API. Instantly verify and validate customer addresses to reduce fraud and ensure accuracy.',
     id: 'address-verification',
     name: 'Address Verification API',
     category: 'KYC',
@@ -296,6 +304,8 @@ response = requests.post(url, headers=headers, json=data)`,
     },
   },
   'phone-number-validation': {
+    metaName:'Phone Number Validation API | Verify Numbers with Reguard AI',
+    metaDescription:'Ensure real-time phone number accuracy with Reguard AI Phone Validation API. Detect invalid, inactive, or fake numbers instantly and improve user verification.',
     id: 'phone-number-validation',
     name: 'Phone Number Validation API',
     category: 'KYC',
@@ -380,6 +390,8 @@ response = requests.post(url, headers=headers, json=data)`,
     },
   },
   'email-verification': {
+    metaName:'Email Verification API | Secure Identity Checks - Reguard AI',
+    metaDescription:'Validate and verify emails instantly with Reguard AI Email Verification API. Ensure accuracy, reduce fraud, and enhance trust with real-time verification.',
     id: 'email-verification',
     name: 'Email Verification API',
     category: 'KYC',
@@ -550,6 +562,8 @@ response = requests.post(url, headers=headers, json=data)`,
 
   // KYB APIs
   'company-registration-lookup': {
+    metaName:'Company Registration Lookup API | Verify Business with Reguard AI',
+    metaDescription:'Quickly verify company registration details with Reguard AI. Ensure business authenticity, reduce fraud, and make smarter onboarding decisions in seconds.',
     id: 'company-registration-lookup',
     name: 'Company Registration Lookup API',
     category: 'KYB',
@@ -638,6 +652,8 @@ response = requests.post(url, headers=headers, json=data)`,
     },
   },
   'ultimate-beneficial-owner': {
+    metaName:"Ultimate Beneficial Owner API | Verify UBO Instantly – Reguard AI",
+    metaDescription:'Reguard AI Ultimate Beneficial Owner API helps identify true business owners in seconds. Enhance KYC compliance with fast, reliable UBO verification.',
     id: 'ultimate-beneficial-owner',
     name: 'Ultimate Beneficial Owner API',
     category: 'KYB',
@@ -727,6 +743,8 @@ response = requests.post(url, headers=headers, json=data)`,
 
   // AML APIs
   'sanctions-screening': {
+    metaName:'Sanctions Screening API | Reguard AI – Global Watchlist Check',
+    metaDescription:'Verify individuals and businesses against global watchlists instantly with Reguard AI’s Sanctions Screening API. Ensure compliance and prevent financial risks.',
     id: 'sanctions-screening',
     name: 'Sanctions Screening API',
     category: 'AML',
@@ -818,6 +836,8 @@ response = requests.post(url, headers=headers, json=data)`,
     },
   },
   'pep-screening': {
+    metaName:'SPEP Screening API – Verify Identity Seamlessly | Reguard AI',
+    metaDescription:'Enhance your KYC process with Reguard AI’s SPEP Screening API. Instantly verify user identity, reduce fraud, and ensure compliance with secure automation.',
     id: 'pep-screening',
     name: 'PEP Screening API',
     category: 'AML',

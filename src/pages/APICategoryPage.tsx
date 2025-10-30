@@ -7,6 +7,7 @@ import { SignUpModal } from '../components/SignUpModal'
 import { APICard } from '../components/APICard'
 import { Search, ArrowLeft, Filter } from 'lucide-react'
 import { getAPIsByCategory } from '../data/apiData'
+import SEO from '../components/SEO'
 
 export const APICategoryPage: React.FC = () => {
   const { category } = useParams()
@@ -35,24 +36,30 @@ export const APICategoryPage: React.FC = () => {
 
   const categoryData = {
     kyc: {
+      metaName:'KYC Identity Verification APIs | Reguard AI',
+      metaDescription:'Verify identities instantly with Reguard AI KYC APIs. Fast, secure, and accurate verification to prevent fraud and boost user trust effortlessly.',
       title: 'KYC Identity Verification APIs',
       description:
-        'Comprehensive Know Your Customer (KYC) APIs for individual identity verification with advanced document validation, biometric authentication, facial recognition, and real-time fraud detection capabilities.',
+      'Comprehensive Know Your Customer (KYC) APIs for individual identity verification with advanced document validation, biometric authentication, facial recognition, and real-time fraud detection capabilities.',
       totalAPIs: 8,
       gradient: 'from-blue-600 to-purple-600',
       keywords:
-        'KYC API, identity verification, document verification, facial recognition, biometric authentication, customer onboarding, compliance automation, fraud detection, OCR processing, liveness detection',
+      'KYC API, identity verification, document verification, facial recognition, biometric authentication, customer onboarding, compliance automation, fraud detection, OCR processing, liveness detection',
     },
     kyb: {
+      metaName:'KYB Business Verification APIs | Reguard AI Identity Check',
+      metaDescription:'Verify business legitimacy in seconds with Reguard AI KYB APIs. Automate onboarding, detect fraud, and ensure compliance with real-time verification.',
       title: 'KYB Business Verification APIs',
       description:
-        'Know Your Business (KYB) verification solutions for company registration validation, corporate structure analysis, beneficial ownership identification, and comprehensive business compliance checks.',
+      'Know Your Business (KYB) verification solutions for company registration validation, corporate structure analysis, beneficial ownership identification, and comprehensive business compliance checks.',
       totalAPIs: 6,
       gradient: 'from-green-600 to-teal-600',
       keywords:
-        'KYB API, business verification, company registration, corporate structure, beneficial ownership, UBO verification, business compliance, entity verification, corporate due diligence',
+      'KYB API, business verification, company registration, corporate structure, beneficial ownership, UBO verification, business compliance, entity verification, corporate due diligence',
     },
     aml: {
+      metaName:'AML Compliance & Screening APIs | Reguard AI Solutions',
+      metaDescription:'Ensure regulatory safety with Reguard AI AML Compliance & Screening APIs. Automate risk checks, detect suspicious activity, and stay audit-ready effortlessly.',
       title: 'AML Compliance and Screening APIs',
       description:
         'Anti-Money Laundering (AML) screening APIs for real-time sanctions list checking, Politically Exposed Person (PEP) screening, adverse media monitoring, and comprehensive financial crime prevention.',
@@ -62,6 +69,8 @@ export const APICategoryPage: React.FC = () => {
         'AML API, anti-money laundering, sanctions screening, PEP screening, OFAC compliance, financial crime prevention, transaction monitoring, suspicious activity detection, regulatory compliance',
     },
     'due-diligence': {
+      metaName:'Due Diligence APIs | Verify Businesses & Individuals – Reguard AI',
+      metaDescription:'Enhance your risk checks with Reguard AI’s Due Diligence APIs. Instantly verify businesses and individuals to ensure compliance and prevent fraud.',
       title: 'Due Diligence APIs',
       description:
         'Comprehensive due diligence solutions for background verification, litigation checks, financial history review, and corporate investigations to ensure compliance and mitigate risks.',
@@ -71,6 +80,8 @@ export const APICategoryPage: React.FC = () => {
         'due diligence API, background checks, litigation screening, corporate investigations, financial history, compliance checks, vendor verification',
     },
     criminal: {
+      metaName:'Criminal Screening APIs | Verify Backgrounds with Reguard AI',
+      metaDescription:'Ensure trusted onboarding with Reguard AI’s Criminal Screening APIs. Instantly detect fraud, verify identities, and maintain compliance with ease.',
       title: 'Criminal Screening APIs',
       description:
         'APIs for criminal background checks, court record searches, watchlist matching, and law enforcement data integration to ensure safe onboarding and compliance.',
@@ -80,6 +91,8 @@ export const APICategoryPage: React.FC = () => {
         'criminal screening API, background verification, criminal records, police verification, court data, law enforcement screening',
     },
     negative: {
+      metaName:'',
+      metaDescription:'',
       title: 'Negative Profiles & Adverse Media APIs',
       description:
         'Monitor adverse media sources, reputational risks, and negative profiles to protect your organization from high-risk individuals and entities.',
@@ -89,6 +102,8 @@ export const APICategoryPage: React.FC = () => {
         'negative profile API, adverse media, reputation risk, negative news screening, media monitoring, compliance risk',
     },
     'transaction-monitoring': {
+      metaName:'Transaction Monitoring APIs | Reguard AI Fraud Detection',
+      metaDescription:'Enhance security with Reguard AI Transaction Monitoring APIs. Detect suspicious activities, prevent fraud, and ensure real-time risk assessment for your business.',
       title: 'Transaction Monitoring APIs',
       description:
         'Real-time transaction monitoring APIs for anomaly detection, suspicious activity identification, and AML compliance automation.',
@@ -98,6 +113,8 @@ export const APICategoryPage: React.FC = () => {
         'transaction monitoring API, fraud detection, suspicious activity, AML compliance, anomaly detection, financial crime monitoring',
     },
     'credit-risk': {
+      metaName:'Credit & Risk Assessment APIs | Smart Insights by ReGuard AI',
+      metaDescription:'Empower your business with ReGuard AI Credit & Risk Assessment APIs. Analyze credit data, assess risk accurately, and make faster, data-driven decisions.',
       title: 'Credit & Risk Assessment APIs',
       description:
         'Credit scoring and risk evaluation APIs for financial institutions to assess creditworthiness, detect risk factors, and make informed lending decisions.',
@@ -107,6 +124,8 @@ export const APICategoryPage: React.FC = () => {
         'credit risk API, credit scoring, risk assessment, financial health, lending risk, creditworthiness evaluation',
     },
     'fraud-detection': {
+      metaName:'Fraud Detection APIs by ReGuard AI | Detect & Prevent Risks',
+      metaDescription:'ReGuard AI Fraud Detection APIs help businesses detect fake identities, prevent scams, and secure onboarding with advanced AI-powered verification.',
       title: 'Fraud Detection APIs',
       description:
         'Advanced fraud detection APIs with AI-driven pattern analysis, device fingerprinting, and transaction risk scoring to prevent fraudulent activities.',
@@ -116,6 +135,8 @@ export const APICategoryPage: React.FC = () => {
         'fraud detection API, fraud prevention, device fingerprinting, risk scoring, synthetic identity detection, anomaly detection',
     },
     'data-enrichment': {
+      metaName:'Data Enrichment APIs | Enhance Customer Insights – Reguard AI',
+      metaDescription:'Unlock richer customer profiles with Reguard AI Data Enrichment APIs. Improve accuracy, insights, and decision-making with verified data intelligence.',
       title: 'Data Enrichment APIs',
       description:
         'Enhance customer profiles with data enrichment APIs that provide demographic, behavioral, and firmographic insights for better decision-making.',
@@ -125,6 +146,8 @@ export const APICategoryPage: React.FC = () => {
         'data enrichment API, customer profiling, firmographic data, demographic enrichment, behavioral insights, identity enhancement',
     },
     geolocation: {
+      metaName:'Geolocation Verification APIs | Verify Location with ReGuard AI',
+      metaDescription:'ReGuard AI Geolocation Verification APIs help businesses verify user locations in real time, reduce fraud, and ensure compliance with advanced AI accuracy.',
       title: 'Geolocation Verification APIs',
       description:
         'Verify user location and IP details with geolocation APIs to prevent fraud, ensure compliance, and enable regional personalization.',
@@ -134,6 +157,8 @@ export const APICategoryPage: React.FC = () => {
         'geolocation API, IP verification, location verification, fraud prevention, regional compliance, geo-IP data',
     },
     'legal-compliance': {
+      metaName:'Legal Compliance Verification APIs | Reguard AI',
+      metaDescription:'Ensure business transparency with Reguard AI Legal Compliance Verification APIs. Automate KYC, AML, and identity checks securely and meet regulatory standards.',
       title: 'Legal Compliance Verification APIs',
       description:
         'Legal entity verification APIs for corporate compliance checks, license verification, and regulatory adherence to meet industry requirements.',
@@ -169,37 +194,8 @@ export const APICategoryPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      <Helmet>
-        <title>
-          {currentCategory.title} - RegTech API Documentation | Reguard
-        </title>
-        <meta
-          name="description"
-          content={`${currentCategory.description} Explore ${
-            currentCategory.totalAPIs
-          } powerful ${category?.toUpperCase()} APIs with comprehensive documentation, code examples, and enterprise-grade security.`}
-        />
-        <meta
-          name="keywords"
-          content={`${currentCategory.keywords}, RegTech APIs, financial services APIs, compliance automation, regulatory technology, API documentation, enterprise APIs, fintech solutions, banking APIs, ${category} compliance`}
-        />
-        <link rel="canonical" href={`https://reguard.com/apis/${category}`} />
-        <meta
-          property="og:title"
-          content={`${currentCategory.title} - RegTech API Documentation`}
-        />
-        <meta
-          property="og:description"
-          content={`${
-            currentCategory.totalAPIs
-          } powerful ${category?.toUpperCase()} APIs for regulatory compliance and identity verification.`}
-        />
-        <meta
-          property="og:url"
-          content={`https://reguard.com/apis/${category}`}
-        />
-      </Helmet>
-      <Header />
+      <SEO title={currentCategory.title} description={currentCategory.description}/>
+      <Header/>
 
       {/* Breadcrumb */}
       <div className="bg-gray-50 border-b border-gray-200">
@@ -226,7 +222,7 @@ export const APICategoryPage: React.FC = () => {
         </div>
       </div>
 
-      {/* Hero Section */}
+          {/* Hero Section */}
       <section
         className={`bg-gradient-to-br ${currentCategory.gradient} text-white py-16`}
       >

@@ -25,11 +25,11 @@ export const ContactPage: React.FC = () => {
   const [signUpModal, setSignUpModal] = useState<{
     isOpen: boolean
     type: 'signup' | 'demo' | 'trial'
-    formSource?: 'schedule-demo'
+    formSource: 'cta' | 'header' | 'hero'
   }>({
     isOpen: false,
     type: 'signup',
-    formSource: 'schedule-demo',
+    formSource: 'header',
   })
   const [formData, setFormData] = useState({
     full_name: '',
@@ -41,14 +41,14 @@ export const ContactPage: React.FC = () => {
     question: '',
   })
 
-  // const openSignUpModal = (type: 'signup' | 'demo' | 'trial', formSource) => {
-  //   setSignUpModal({ isOpen: true, type, formSource })
-  // }
+  const openSignUpModal = (type: 'signup' | 'demo' | 'trial', formSource) => {
+    console.log(formSource)
+    setSignUpModal({ isOpen: true, type, formSource })
+  }
 
-  // const closeSignUpModal = () => {
-  //   setSignUpModal({ isOpen: false, type: 'signup' })
-  // }
-
+  const closeSignUpModal = () => {
+    setSignUpModal({ isOpen: false, type: 'signup' })
+  }
   const handleInputChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
@@ -196,11 +196,20 @@ export const ContactPage: React.FC = () => {
 
   const offices = [
     {
-      city: 'Delhi',
-      address: '789 Corporate Center, Connaught Place, New Delhi 110001, India',
+      city: 'Noida',
+      address:
+        'FC-12, MAHARAJA AGRASEN MARG, FILM CITY, SECTOR 16A, NOIDA, UTTAR PRADESH - 201301',
       email: 'business@reguardai.com',
       isHeadquarters: false,
     },
+    {
+      city: 'Delhi',
+      address:
+        '44 IIND FLOOR REGAL BUILDING, CONNAUGHT PLACE, NEW DELHI - 110001',
+      email: 'business@reguardai.com',
+      isHeadquarters: false,
+    },
+
     // {
     //   city: 'Delhi',
     //   address: '789 Corporate Center, Connaught Place, New Delhi 110001, India',
@@ -319,9 +328,9 @@ export const ContactPage: React.FC = () => {
                 <button
                   onClick={() => {
                     if (method.title === 'Schedule Demo') {
-                      // openSignUpModal('demo', 'schedule-demo')
+                      openSignUpModal('demo', 'hero')
                     } else if (method.title === 'Email Us') {
-                      window.location.href = 'mailto:hello@reguard.com'
+                      window.location.href = 'mailto:business@reguard.com'
                     } else if (method.title === 'Call Us') {
                       window.location.href = 'tel:+918045678900'
                     } else if (method.title === 'Live Chat') {
@@ -541,12 +550,12 @@ export const ContactPage: React.FC = () => {
       </section>
 
       <Footer />
-      {/* <SignUpModal
+      <SignUpModal
         isOpen={signUpModal.isOpen}
         onClose={closeSignUpModal}
         type={signUpModal.type}
         formSource={signUpModal.formSource}
-      /> */}
+      />
     </div>
   )
 }

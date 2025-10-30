@@ -1,4 +1,4 @@
-// src/components/SEO.jsx
+ // src/components/SEO.jsx
 import { Helmet } from 'react-helmet-async'
 
 export default function SEO({

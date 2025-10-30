@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { Header } from '../components/Header'
 import { Footer } from '../components/Footer'
+import SEO from '../components/SEO'
 import { SignUpModal } from '../components/SignUpModal'
 import {
   ArrowLeft,
@@ -45,12 +46,11 @@ export const SolutionDetailPage: React.FC = () => {
   // Mock solution data - in a real app, this would come from a data source
   const solutionsData = {
     embedkyc: {
+      metaName:'EmbedKYC by Reguard AI | Simplify Onboarding & Verification',
+      metaDescription:'Integrate seamless KYC verification with EmbedKYC by Reguard AI. Verify users instantly, reduce friction, and ensure secure digital onboarding.',
       name: 'EmbedKYC',
       tagline: 'Custom KYC Flow Builder for Financial Institutions',
       badge: 'NEW',
-      metaTitle: 'Embed KYC by reguard | Easy Custom KYC Workflows',
-      metaDescription:
-        'Design and customize KYC workflows with EmbedKYC by reguard. Use a simple drag-and-drop tool to meet compliance and streamline identity verification.',
       description:
         'Build and customize your own KYC compliance workflows with our intuitive drag-and-drop interface. Create tailored identity verification processes that match your exact regulatory requirements and business needs.',
       longDescription:
@@ -100,11 +100,10 @@ export const SolutionDetailPage: React.FC = () => {
       },
     },
     watchdawg: {
+      metaName:'Watchdawg by ReGuard AI – Smart Fraud Detection & Security',
+      metaDescription:'Watchdawg by ReGuard AI uses advanced AI monitoring to detect fraud, prevent risks, and ensure real-time protection for your digital operations.',
       name: 'WatchDawg',
       tagline: '360° AML Risk Monitoring and Compliance Platform',
-      metaTitle: 'WatchDawg AML Risk Monitoring | reguard',
-      metaDescription:
-        'Stay ahead of financial crimes with WatchDawg by reguard — a smart AML risk monitoring solution offering 24/7 surveillance across all customer touchpoints.',
       description:
         'Comprehensive AML risk monitoring solution that provides continuous surveillance across all customer touchpoints to identify and mitigate financial crimes before they impact your institution.',
       longDescription:
@@ -154,12 +153,11 @@ export const SolutionDetailPage: React.FC = () => {
       },
     },
     hearoclock: {
+      metaName:'HearoClock by Reguard AI – Smart Compliance Time Tracker',
+      metaDescription:'Boost accuracy and efficiency with HearoClock by Reguard AI. Automate time tracking, monitor compliance, and streamline your workflow seamlessly.',
       name: "Hear'O'Clock",
       tagline:
         'AI-Powered Reputation Management for Brands, Enterprises & Government',
-      metaTitle: 'Hear’O’Clock by reguard | Real-Time Brand Protection',
-      metaDescription:
-        'Stay ahead with Hear’O’Clock by reguard – advanced reputation monitoring and crisis management to protect your brand across all digital channels.',
       description:
         "Advanced reputation monitoring and crisis management platform that tracks, analyzes, and helps protect your brand's online presence across all digital channels with real-time threat detection.",
       longDescription:
@@ -209,11 +207,10 @@ export const SolutionDetailPage: React.FC = () => {
       },
     },
     complianceiq: {
+      metaName:'ComplianceIQ by Reguard AI | Smart Compliance Automation',
+      metaDescription:'Automate compliance with ComplianceIQ by Reguard AI. Detect risks, ensure policy adherence, and simplify audits with AI-driven compliance solutions.',
       name: 'ComplianceIQ',
       tagline: 'Intelligent Regulatory Compliance Automation Platform',
-      metaTitle: 'ComplianceIQ: Smart Compliance & Risk Management | reguard',
-      metaDescription:
-        'Stay ahead of regulations with ComplianceIQ by reguard. Simplify compliance, reduce risks, and ensure trust with easy, reliable solutions.',
       description:
         'AI-powered compliance automation platform that streamlines regulatory processes, ensures adherence to multiple frameworks, and reduces compliance costs by up to 60%.',
       longDescription:
@@ -269,11 +266,10 @@ export const SolutionDetailPage: React.FC = () => {
       },
     },
     fraudshield: {
+      metaName:'FraudShield by Reguard AI | Detect & Prevent Digital Fraud',
+      metaDescription:'Protect your business with FraudShield by Reguard AI. Detect, analyze, and stop online fraud in real time using AI-powered fraud prevention technology.',
       name: 'FraudShield',
       tagline: 'Advanced Fraud Detection & Prevention Platform',
-      metaTitle: 'FraudShield by reguard | Smart Protection Against Fraud',
-      metaDescription:
-        'Stay one step ahead with FraudShield by reguard. Detect, prevent, and fight fraud with ease—protecting your business and customers in real time.',
       description:
         'Machine learning-powered fraud detection system that identifies suspicious activities in real-time, preventing financial losses and protecting customer trust.',
       longDescription:
@@ -329,11 +325,10 @@ export const SolutionDetailPage: React.FC = () => {
       },
     },
     riskradar: {
+      metaName:'RiskRadar by Reguard AI | Smart Risk Detection & Insights',
+      metaDescription:'Stay ahead of threats with RiskRadar by Reguard AI. Detect, assess, and manage business risks instantly using intelligent, data-driven automation.',
       name: 'RiskRadar',
       tagline: 'Real-time Risk Assessment & Monitoring Dashboard',
-      metaTitle: 'RiskRadar by Reguard | Smart Risk & Fraud Detection',
-      metaDescription:
-        'Stay ahead of fraud with RiskRadar by Reguard. Get real-time risk insights, smarter identity checks, and secure decisions to protect your business.',
       description:
         'Comprehensive risk management platform that provides 360-degree visibility into organizational risks with predictive analytics and automated mitigation strategies.',
       longDescription:
@@ -411,27 +406,9 @@ export const SolutionDetailPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      <Helmet>
-        <title>{solution.metaTitle}</title>
-        <meta name="description" content={solution.metaDescription} />
-        <meta
-          name="keywords"
-          content={`${solution.name}, ${solution.tagline}, RegTech solution, compliance automation, enterprise software, regulatory technology, compliance platform, automated monitoring, risk mitigation`}
-        />
-        <link
-          rel="canonical"
-          href={`https://reguard.com/solutions/${solutionId}`}
-        />
-        <meta property="og:title" content={solution.metaTitle} />
-        <meta property="og:description" content={solution.metaDescription} />
-        <meta
-          property="og:url"
-          content={`https://reguard.com/solutions/${solutionId}`}
-        />
-        <meta property="og:image" content={solution.image} />
-      </Helmet>
-      <Header />
-
+      <Header>
+            <SEO title={solution.metaName} description={solution.metaDescription}/>
+      </Header>
       {/* Breadcrumb */}
       <div className="bg-gray-50 border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">

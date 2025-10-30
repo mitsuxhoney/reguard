@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { Header } from '../components/Header'
 import { Footer } from '../components/Footer'
+import SEO from '../components/SEO.jsx'
 import { SignUpModal } from '../components/SignUpModal'
 import {
   ArrowLeft,
@@ -76,7 +77,8 @@ export const APIDetailPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      <Helmet>
+      <SEO title={apiData.metaName} description={apiData.metaDescription}/>
+      {/* <Helmet>
         <title>{apiData.name} - RegTech API Documentation | Reguard</title>
         <meta
           name="description"
@@ -102,7 +104,7 @@ export const APIDetailPage: React.FC = () => {
           property="og:url"
           content={`https://reguard.com/apis/${category}/${apiId}`}
         />
-      </Helmet>
+      </Helmet> */}
       <Header />
 
       {/* Breadcrumb */}

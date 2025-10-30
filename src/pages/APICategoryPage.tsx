@@ -195,37 +195,7 @@ export const APICategoryPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
       <SEO title={currentCategory.title} description={currentCategory.description}/>
-      {/* <Helmet>
-        <title>
-          {currentCategory.title} - RegTech API Documentation | Reguard
-        </title>
-        <meta
-          name="description"
-          content={`${currentCategory.description} Explore ${
-            currentCategory.totalAPIs
-          } powerful ${category?.toUpperCase()} APIs with comprehensive documentation, code examples, and enterprise-grade security.`}
-        />
-        <meta
-          name="keywords"
-          content={`${currentCategory.keywords}, RegTech APIs, financial services APIs, compliance automation, regulatory technology, API documentation, enterprise APIs, fintech solutions, banking APIs, ${category} compliance`}
-        />
-        <link rel="canonical" href={`https://reguard.com/apis/${category}`} />
-        <meta
-          property="og:title"
-          content={`${currentCategory.title} - RegTech API Documentation`}
-        />
-        <meta
-          property="og:description"
-          content={`${
-            currentCategory.totalAPIs
-          } powerful ${category?.toUpperCase()} APIs for regulatory compliance and identity verification.`}
-        />
-        <meta
-          property="og:url"
-          content={`https://reguard.com/apis/${category}`}
-        />
-      </Helmet> */}
-      <Header />
+      <Header/>
 
       {/* Breadcrumb */}
       <div className="bg-gray-50 border-b border-gray-200">
@@ -252,7 +222,7 @@ export const APICategoryPage: React.FC = () => {
         </div>
       </div>
 
-      {/* Hero Section */}
+          {/* Hero Section */}
       <section
         className={`bg-gradient-to-br ${currentCategory.gradient} text-white py-16`}
       >
@@ -372,45 +342,44 @@ export const APICategoryPage: React.FC = () => {
             >
               <ArrowLeft size={16} className="mr-2" />
               Browse All APIs
-            </Link>nk>
-          </div></div>
+            </Link>
+          </div>
         )}
-      </div>      </div>
+      </div>
 
       {/* CTA Section */}
       <section className="bg-gray-50 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="font-gilroy text-3xl font-bold text-gray-900 mb-4">roy text-3xl font-bold text-gray-900 mb-4">
-            Ready to Get Started?dy to Get Started?
+          <h2 className="font-gilroy text-3xl font-bold text-gray-900 mb-4">
+            Ready to Get Started?
           </h2>
-          <p className="font-inter text-lg text-gray-600 mb-8 max-w-2xl mx-auto">to">
-            Start integrating our {currentCategory.title.toLowerCase()} todayrrentCategory.title.toLowerCase()} today
-            with 1000 free API calls.th 1000 free API calls.
+          <p className="font-inter text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+            Start integrating our {currentCategory.title.toLowerCase()} today
+            with 1000 free API calls.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">sName="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
               onClick={() => openSignUpModal('trial', 'footer-cta')}
-              className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors shadow-lg hover:shadow-xl" className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors shadow-lg hover:shadow-xl"
+              className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors shadow-lg hover:shadow-xl"
             >
-              Get API Key Key
-            </button>n>
+              Get API Key
+            </button>
             <button
               onClick={() => openSignUpModal('demo', 'footer-cta')}
-              className="border-2 border-red-600 hover:bg-red-600 hover:text-white text-red-600 px-8 py-4 rounded-lg text-lg font-semibold transition-colors" className="border-2 border-red-600 hover:bg-red-600 hover:text-white text-red-600 px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
+              className="border-2 border-red-600 hover:bg-red-600 hover:text-white text-red-600 px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
             >
-              Schedule Demoe Demo
-            </button>tton>
-          </div>v>
+              Schedule Demo
+            </button>
+          </div>
         </div>
-      </section>      </section>
+      </section>
 
       <Footer />
       <SignUpModal
-        isOpen={signUpModal.isOpen}}
-        onClose={closeSignUpModal}al}
-        type={signUpModal.type}type={signUpModal.type}
+        isOpen={signUpModal.isOpen}
+        onClose={closeSignUpModal}
+        type={signUpModal.type}
       />
-    </div> </div>
-  ) )
-}}
-
+    </div>
+  )
+}

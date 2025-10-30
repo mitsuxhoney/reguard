@@ -1,0 +1,74 @@
+name: Deploy Vite App to EC2
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+        
+    - name: Install dependencies
+      run: npm ci
+      
+    - name: Create .env file
+      run: |
+        echo "VITE_SUPABASE_ANON_KEY=${{ secrets.VITE_SUPABASE_ANON_KEY }}" >> .env
+        echo "VITE_SUPABASE_URL=${{ secrets.VITE_SUPABASE_URL }}" >> .env
+        
+    - name: Build application
+      run: npm run build
+      
+    - name: Setup SSH
+      run: |
+        mkdir -p ~/.ssh
+        echo "${{ secrets.EC2_SSH_KEY }}" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        ssh-keyscan -H ${{ secrets.EC2_HOST }} >> ~/.ssh/known_hosts
+        
+    - name: Deploy to EC2
+      run: |
+        # Create a tarball of the dist folder
+        tar -czf dist.tar.gz dist/
+        
+        # Copy the tarball to EC2
+        scp -i ~/.ssh/id_rsa dist.tar.gz ubuntu@${{ secrets.EC2_HOST }}:/tmp/
+        
+        # SSH into EC2 and deploy
+        ssh -i ~/.ssh/id_rsa ubuntu@${{ secrets.EC2_HOST }} << 'EOF'
+          # Create backup of current deployment
+          sudo mkdir -p /var/www/reguard_marketplace-backup
+          sudo cp -r /var/www/reguard_marketplace/* /var/www/reguard_marketplace-backup/ 2>/dev/null || true
+          
+          # Extract new build
+          cd /tmp
+          tar -xzf dist.tar.gz
+          
+          # Deploy new build
+          sudo rm -rf /var/www/reguard_marketplace/*
+          sudo cp -r dist/* /var/www/reguard_marketplace/
+          
+          # Set proper permissions
+          sudo chown -R www-data:www-data /var/www/reguard_marketplace/
+          sudo chmod -R 755 /var/www/reguard_marketplace/
+          
+          # Restart nginx (if needed)
+          sudo systemctl reload nginx
+          
+          # Cleanup
+          rm -f /tmp/dist.tar.gz
+          rm -rf /tmp/dist
+          
+          echo "Deployment completed successfully!"
+        EOF
